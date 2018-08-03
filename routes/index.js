@@ -8,7 +8,7 @@ router.get('/test', function(req, res) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {user: req.user});
+  res.render('index', {user: req.user, spots: [] });
 });
 
 router.get('/auth/google', passport.authenticate(
