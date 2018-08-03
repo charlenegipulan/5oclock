@@ -12,6 +12,9 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
+var spotsRouter = require('./routes/spots');
+var specialsRouter = require('./routes/specials');
+var apiRouter = require('./routes/api');
 var app = express();
 
 // view engine setup
@@ -34,6 +37,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
+app.use('/spots', spotsRouter);
+app.use('/special', specialsRouter);
+app.use('/api/spots', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
