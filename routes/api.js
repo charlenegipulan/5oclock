@@ -6,6 +6,7 @@ var apiController = require('../controllers/api/spots');
 
 
 router.get('/', apiController.getAllSpots);
+router.get('/:id', apiController.getASpot);
 
 
 

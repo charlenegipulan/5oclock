@@ -2,8 +2,7 @@ var Spot = require('../../models/spot');
 
 module.exports = {
     getAllSpots, 
-    getASpot,
-    updateSpot
+    getASpot
 }
 
 function getAllSpots(req, res, next) {
@@ -12,6 +11,4 @@ function getAllSpots(req, res, next) {
 function getASpot(req, res, next) {
 
 }
-function updateSpot(req, res, next) {
 
-}
