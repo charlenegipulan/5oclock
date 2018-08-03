@@ -12,6 +12,9 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
+var spotsRouter = require('./routes/spots');
+var specialsRouter = require('./routes/specials');
+var apiRouter = require('./routes/api');
 var app = express();
 
 // view engine setup
