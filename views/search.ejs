@@ -16,11 +16,60 @@
           <% }); %>
 </div>
 
+<script>
+
+var businesses = [
+    <% spots.forEach(function(spot) { %>
+        {
+            name: `<%= spot.name %>`,
+            lat: <%= spot.coordinates.latitude %>,
+            lng: <%= spot.coordinates.longitude %>
+        }, 
+    <% }); %>
+];
+
+var openedInfoWindow = null;
 
 
-<!-- <script src="../public/javascript/main.js"></script>    
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4VC6BszjjOVCwa5anuaaaUejJ1G11lbA&callback=initMap"
-    type="text/javascript"></script> 
--->
+function initMap(){
+    //computes center
+    var computeMinMax = businesses.reduce(function(ctr, b){
+        ctr.latMin = b.lat < ctr.latMin ? b.lat : ctr.latMin;
+        ctr.latMax = b.lat > ctr.latMax ? b.lat : ctr.latMax;
+        ctr.lngMin = b.lng < ctr.lngMin ? b.lng : ctr.lngMin;
+        ctr.lngMax = b.lng > ctr.lngMax ? b.lng : ctr.lngMax;
+        return ctr;
+    }, { 
+        latMin: businesses[0].lat,
+        latMax: businesses[0].lat,
+        lngMin: businesses[0].lng,
+        lngMax: businesses[0].lng
+    });
+    var center = {
+        lat: (computeMinMax.latMin + computeMinMax.latMax) / 2, 
+        lng: (computeMinMax.lngMin + computeMinMax.lngMax) / 2
+    };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: center
+    });
+    //draw markers for each business
+    businesses.forEach(function(b) {
+        var marker = new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
+        var infoWindow = new google.maps.InfoWindow({ 
+            content: `<h3>${b.name}</h3>` 
+        });
+        marker.addListener('click', function() {
+            if (openedInfoWindow) openedInfoWindow.close();
+            infoWindow.open(map, marker);
+            openedInfoWindow = infoWindow;
+        });
+    });
+}
+
+</script>
+
+<!-- <script src="../public/javascript/main.js"></script>     -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvfoT8AuOU6lNHWI1y2r2MqMBh1isW3Ns&callback=initMap" type="text/javascript"></script> 
  
 <%- include('./_partials/footer') %>
