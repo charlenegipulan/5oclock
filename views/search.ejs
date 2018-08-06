@@ -1,21 +1,32 @@
 <%- include('./_partials/head') %>
 
+<div class="search-results-panel">
 
-<div id="map"></div>
+
+<div id="map">
+
+</div>
 <br>
 
 <div class="search-results">
+    <div class="results-list">
         <% spots.forEach(function(spot) { %>
-          <a href="/spots/<%= spot.id %>" target="_blank"
+            <a href="/spots/<%= spot.id %>" target="_blank"
               class="list-group-item">
                <img src="<%= spot.image_url %>">
-               <%= spot.name %>
-               <%= spot.location.display_address %>
+               <h3 class="spots-name"><%= spot.name %></h3><br>
+               <%= spot.location.display_address %><br>
                <%= spot.is_closed %>
             </a>
-          <% }); %>
+        <% }); %>
+    </div>
 </div>
 
+<<<<<<< HEAD
+=======
+</div>
+
+>>>>>>> master
 <script>
 var businesses = [
     <% spots.forEach(function(spot) { %>
@@ -26,9 +37,11 @@ var businesses = [
         }, 
     <% }); %>
 ];
-
 var openedInfoWindow = null;
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 function initMap(){
     //computes center
     var computeMinMax = businesses.reduce(function(ctr, b){
