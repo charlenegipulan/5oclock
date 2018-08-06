@@ -28,6 +28,7 @@ var businesses = [
     <% }); %>
 ];
 
+var openedInfoWindow = null;
 
 
 function initMap(){
@@ -54,7 +55,15 @@ function initMap(){
     });
     //draw markers for each business
     businesses.forEach(function(b) {
-        new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
+        var marker = new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
+        var infoWindow = new google.maps.InfoWindow({ 
+            content: `<h3>${b.name}</h3>` 
+        });
+        marker.addListener('click', function() {
+            if (openedInfoWindow) openedInfoWindow.close();
+            infoWindow.open(map, marker);
+            openedInfoWindow = infoWindow;
+        });
     });
 }
 
