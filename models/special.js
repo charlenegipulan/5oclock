@@ -10,6 +10,8 @@ var specialSchema = new Schema ({
     spot: {type: Schema.Types.ObjectId, ref: 'Spot'},
     verified: {type: Boolean, default: false},
     when: { hours: String, days: String}
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Special', specialSchema);
