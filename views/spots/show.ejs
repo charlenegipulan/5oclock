@@ -1,4 +1,10 @@
-<%- include('./_partials/head') %>
+<%- include('../_partials/head') %>
 
+<div class="search-results">
+               <img src="<%= spot.image %>">
+               <%= spot.name %>
+               <%= spot.address %>
+               <%= spot.is_closed %>
+</div>
 
-<%- include('./_partials/footer') %>
+<%- include('../_partials/footer') %>
