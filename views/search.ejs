@@ -17,7 +17,6 @@
 </div>
 
 <script>
-
 var businesses = [
     <% spots.forEach(function(spot) { %>
         {
@@ -29,7 +28,6 @@ var businesses = [
 ];
 
 var openedInfoWindow = null;
-
 
 function initMap(){
     //computes center
@@ -66,10 +64,8 @@ function initMap(){
         });
     });
 }
-
 </script>
 
-<!-- <script src="../public/javascript/main.js"></script>     -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvfoT8AuOU6lNHWI1y2r2MqMBh1isW3Ns&callback=initMap" type="text/javascript"></script> 
  
 <%- include('./_partials/footer') %>
