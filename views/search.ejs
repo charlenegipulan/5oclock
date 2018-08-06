@@ -1,4 +1,29 @@
 <%- include('./_partials/head') %>
 
 
+
+<div id="map"></div>
+<br>
+
+<div class="search-results">
+        <% spots.forEach(function(spot) { %>
+          <a href="/spots/<%= spot.id %>" target="_blank"
+              class="list-group-item">
+               <img src="<%= spot.image_url %>">
+               <%= spot.name %>
+               <%= spot.location.display_address %>
+               <%= spot.is_closed %>
+            </a>
+          <% }); %>
+</div>
+
+
+
+
+
+
+
+<!-- <script src="../public/javascript/main.js"></script>    
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4VC6BszjjOVCwa5anuaaaUejJ1G11lbA&callback=initMap"
+    type="text/javascript"></script>    -->
 <%- include('./_partials/footer') %>
