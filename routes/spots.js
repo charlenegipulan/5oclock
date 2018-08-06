@@ -4,7 +4,7 @@ var spotsController = require('../controllers/spots');
 
 router.get('/search', spotsController.search);
 router.get('/', spotsController.index);
-router.get('/:id', spotsController.show);
+router.get('/:yelpId', spotsController.show);
 
 
 module.exports = router;

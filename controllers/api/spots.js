@@ -8,7 +8,8 @@ module.exports = {
 function getAllSpots(req, res, next) {
     
 }
-function getASpot(req, res, next) {
 
+function getASpot(req, res, next) {
+    
 }
 
