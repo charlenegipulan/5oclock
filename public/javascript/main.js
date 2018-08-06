@@ -1,9 +1,9 @@
 // endpoint
-var yelpEndpoint = 'https://api.yelp.com/v3/businesses/search?categories=bars.restaurants&';
+var yelpBusinessEndpoint = 'https://api.yelp.com/v3/businesses/';
+var Spot = require('../../models/spot');
   
 // cached dom elements
 var map = document.getElementById('map');
-var name = document.getElementById('name');
 
  // event listeners
 
@@ -11,28 +11,30 @@ var name = document.getElementById('name');
  
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 37.753717, lng: -122.388359},
+        // center at General Assembly DTLA
+      center: {lat: 34.0480423, lng: -118.2387153},
       zoom: 14
     });
     
 };
 
-function getAllFoodTrucks() {
-    fetch(`${api}`)
-    .then(response => response.json())
-    .then(json => render(json));
-}
+// function getAllFoodTrucks() {
+//     fetch(`${api}`)
+//     .then(response => response.json())
+//     .then(json => render(json));
+// }
 
 function render(json) { 
    
-    json.forEach(function(elem) {
-        var latitude = elem.location.coordinates[1];
-        var longitude = elem.location.coordinates[0];
-        var applicant = elem.applicant;
-        marker = new google.maps.Marker({
+    json.forEach(function(spot) {
+        var latitude = spot.coordinates.latitude;
+        var longitude = spot.coordinates.longitude;
+        // var applicant = spot.applicant;
+        var marker = new google.maps.Marker({
             position: new google.maps.LatLng(latitude, longitude),
             map: map,
-            applicant: applicant
+            name: spot.name
+            // applicant: applicant
         });
         var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
@@ -48,8 +50,11 @@ function render(json) {
     });
 }
 
+initMap();
+
 // function getName(applicant) {
 //     console.log(marker.applicant);
 //     name.innerHTML = marker.applicant;
 // }
-getAllFoodTrucks();
+// getAllFoodTrucks();
+
