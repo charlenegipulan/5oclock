@@ -1,22 +1,30 @@
 <%- include('./_partials/head') %>
 
+<div class="search-results-panel">
 
-<div id="map"></div>
+
+<div id="map">
+
+</div>
 <br>
 
 <div class="search-results">
+    <div class="results-list">
         <% spots.forEach(function(spot) { %>
-          <a href="/spots/<%= spot.id %>" target="_blank"
+            <a href="/spots/<%= spot.id %>" target="_blank"
               class="list-group-item">
                <img src="<%= spot.image_url %>">
                <%= spot.name %>
                <%= spot.location.display_address %>
+
             </a>
-          <% }); %>
+        <% }); %>
+    </div>
+</div>
+
 </div>
 
 <script>
-
 var businesses = [
     <% spots.forEach(function(spot) { %>
         {
@@ -26,10 +34,7 @@ var businesses = [
         }, 
     <% }); %>
 ];
-
 var openedInfoWindow = null;
-
-
 function initMap(){
     //computes center
     var computeMinMax = businesses.reduce(function(ctr, b){
@@ -65,10 +70,10 @@ function initMap(){
         });
     });
 }
-
 </script>
 
 <!-- <script src="../public/javascript/main.js"></script>     -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLEMAPS_KEY%>&callback=initMap" type="text/javascript"></script> 
+
  
 <%- include('./_partials/footer') %>
