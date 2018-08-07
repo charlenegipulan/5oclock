@@ -1,19 +1,23 @@
 <%- include('./_partials/head') %>
 
 <div class="container">
+
+  <div class="center-container">
     <h1 class="title">Its 5 o'clock somewhere</h1>
 
 
-  <div class="search-bar">
-        <div class="dropdown-panel">
-          <form class="form-inline" action="/spots/search" method="GET">
+      <div class="search-bar">
+        
+          <form class="col-4" action="/spots/search" method="GET">
             <input type="text" name="location" class="form-control" placeholder="Current Location or Enter City/Zipcode">
             <input type="hidden" name="lat">
             <input type="hidden" name="lng">
             <button type="search" class="btn btn-primary">search</button>
         </form>
+      
       </div>
   </div>
+  
 </div> 
 
 

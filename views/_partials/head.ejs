@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=McLaren" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+
 
   </head>
   <body>
@@ -17,9 +21,9 @@
       <ul>
         <li>
           <% if (user) { %>
-            <a href="/logout">LOG OUT</a>
+            <a class ="log-in-text" href="/logout">LOG OUT</a>
           <% } else { %>
-            <a href="/auth/google">LOG IN WITH GOOGLE</a>
+            <a class ="log-in-text" href="/auth/google">LOG IN WITH GOOGLE</a>
           <% } %>
         </li>
       </ul>
