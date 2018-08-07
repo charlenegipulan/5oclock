@@ -19,12 +19,15 @@
 <div class= "show-specials">
     <!-- specials go here -->
     <% spot.specials.forEach(function(special) { %>
-        Category: <%= special.category %>
-        Days: <%= special.when.days %>
-        Hours: <%= special.when.hours %>
-        Price Range: <%= special.price %>
-        Deets: <%= special.content %>
-        Posted: <%= special.createdAt.toLocaleString() %>
+        <div id="<%= special.id %>">
+            <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="X"> 
+            Category: <%= special.category %>
+            Days: <%= special.when.days %>
+            Hours: <%= special.when.hours %>
+            Price Range: <%= special.price %>
+            Deets: <%= special.content %>
+            Posted: <%= special.createdAt.toLocaleString() %>
+        </div>
     <% }); %>
 </div>
 <% if (user) { %> 
@@ -33,4 +36,16 @@
     <h3> Login to Add a Special!</h3>    
 <% } %>
 
+<script>
+    function destroySpecial(specialId) {
+        console.log(specialId);
+        fetch({
+            url: `/api/specials/${specialId}`,
+            method: 'delete'
+        }).then(function() {
+            document.getElementById(specialId).remove();
+        });
+    }
+    
+</script>
 <%- include('../_partials/footer') %>
