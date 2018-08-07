@@ -14,9 +14,9 @@
             <a href="/spots/<%= spot.id %>" target="_blank"
               class="list-group-item">
                <img src="<%= spot.image_url %>">
-               <h3 class="spots-name"><%= spot.name %></h3><br>
-               <%= spot.location.display_address %><br>
-               <%= spot.is_closed %>
+               <%= spot.name %>
+               <%= spot.location.display_address %>
+
             </a>
         <% }); %>
     </div>
@@ -79,6 +79,8 @@ function initMap(){
 }
 </script>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvfoT8AuOU6lNHWI1y2r2MqMBh1isW3Ns&callback=initMap" type="text/javascript"></script> 
+<!-- <script src="../public/javascript/main.js"></script>     -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLEMAPS_KEY%>&callback=initMap" type="text/javascript"></script> 
+
  
 <%- include('./_partials/footer') %>
