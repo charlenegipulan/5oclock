@@ -80,7 +80,7 @@ a:hover {
 }
 
 .btn {
-  background-color: rgb(200, 158, 55);
+  background-color: #DFB465;
   border: none;
   height: 50px;
   width: 90px;
@@ -118,14 +118,23 @@ ul {
   text-decoration: none;
 }
 
-.category {
-  height: 40px;
+#category {
+  width: 200px;
+  margin-right: 80px;
+}
+
+#price {
+  width: 200px;
 }
 
 .form-control {
   height: 50px;
   width: 700px;
   display: inline;
+}
+
+#daysHelp {
+  width: 200px;
 }
 
 .search-bar {
@@ -189,7 +198,7 @@ ul {
 .show-spot-container {
   display: flex;
   flex-direction: row;
-  margin: 30px;
+  margin: 5px 30px 30px 5px;
   padding-left: 30px;
 }
 
@@ -199,7 +208,7 @@ ul {
 
 .show-spot-right-container {
   margin-left: 70px;
-  margin-top: 100px;
+  margin-top: 30px;
   padding-right: 10px;
   width: 60%;
 }
@@ -230,8 +239,24 @@ ul {
 
 .name-divider {
   margin-top: 20px;
+  height: 30px;
 }
 
 .website-text {
   word-wrap: break-word;
+}
+
+.forms-container {
+
+}
+
+#specialContent {
+  width: 250px;
+  height: 150px;
+  margin-top: 10px;
+}
+
+#specialDays, #specialhours {
+  margin-left: 100px;
+  width: 200px;
 }
