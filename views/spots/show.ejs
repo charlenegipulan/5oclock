@@ -6,12 +6,12 @@
     </div>
 
     <div class="show-spot-right-container">
-        <h1 class="show-spot-name-text"> <%= spot.name %> </h1> <br>
-        <hr>
-        <h3><%= spot.address %> </h3><br>
-        <h4><%= spot.phone %> </h4>
-        <h3><%= spot.hours %> </h3> <br>
-        <h4><%= spot.website %></h4>
+        <h1 id="spot-name"> <%= spot.name %> </h1>
+        <hr class="name-divider">
+        <h5 class="label-text"> Address: <span style="font-size: 20px"><%= spot.address %> </span> </h5><br>
+        <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
+        <h5 class="label-text"> Hours of Operation: <span style="font-size: 20px"><%= spot.hours %> </span></h5> <br>
+        <h4 class="website-text"> Website: <%= spot.website %></h4><br>
     </div>
 
 </div>
