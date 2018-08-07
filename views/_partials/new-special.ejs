@@ -1,9 +1,9 @@
 <div class="container">
     <h3>Add a new special</h3>
-    <form>
+    <form action="/spots/<%= spot.id %>/specials" method="POST">
         <div class="form-group">
             <label for="category">Select a category</label>
-                <select class="form-control" id="category">
+                <select class="form-control" id="category" name="category">
                     <option selected>Select</option>
                     <option value="Food">Food</option>
                     <option value="Drink">Drink</option>
@@ -15,19 +15,19 @@
         <div>
             <div class="form-group">
                 <label for="specialDays">Day(s)</label>
-                <input type="days" class="form-control" id="specialDays" aria-describedby="daysHelp" placeholder="Enter days">
+                <input type="text" class="form-control" id="specialDays" aria-describedby="daysHelp" placeholder="Enter days" name= "when[days]">
                 <small id="daysHelp" class="form-text text-muted">e.g. "Mon-Thurs", "Tues & Weds", or "Weekends"</small>
             </div>
             <div class="form-group">
-                <label for="specialHours">Hours</label>
-                <input type="hours" class="form-control" id="specialhours" aria-describedby="hoursHelp" placeholder="Enter hours">
+                <label name="specialHours">Hours</label>
+                <input type="hours" class="form-control" id="specialhours" aria-describedby="hoursHelp" placeholder="Enter hours" name= "when[hours]">
                 <small id="hoursHelp" class="form-text text-muted">e.g. "All Day", "5-8 PM", "After 6PM" </small>
             </div>
         </div>
         
         <div class="form-group">
             <label for="specialContent">Describe the special</label>
-            <textarea class="form-control" id="specialContent" rows="3"></textarea>
+            <textarea class="form-control" id="specialContent" rows="3" name="content"></textarea>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>

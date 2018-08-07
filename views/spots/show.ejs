@@ -9,11 +9,23 @@
         <h1 class="show-spot-name-text"> <%= spot.name %> </h1> <br>
         <hr>
         <h3><%= spot.address %> </h3><br>
-        <h4> <%= spot.phone %> </h4>
-        <h3><%= spot.is_closed %> </h3> <br>
+        <h4><%= spot.phone %> </h4>
+        <h3><%= spot.hours %> </h3> <br>
         <h4><%= spot.website %></h4>
     </div>
 
 </div>
+
+<div class= "show-specials">
+    <!-- specials go here -->
+    <% spot.specials.forEach(function(special) { %>
+        <%= special.content %>
+    <% }); %>
+</div>
+<% if (user) { %> 
+    <%- include('../_partials/new-special') %>;
+<% }  else { %>
+    <h3> Login to Add a Special!</h3>    
+<% } %>
 
 <%- include('../_partials/footer') %>
