@@ -15,6 +15,13 @@ a {
   padding: 10px;
 }
 
+.log-in-text-main-page {
+  color: white;
+  background-color: black;
+  padding: 10px;
+  margin-top: -200px;
+}
+
 .btn btn-primary {
   display: inline;
 }
@@ -33,14 +40,14 @@ a {
 
 .container {
   margin-top: 0 auto;
-  background: url(https://i.imgur.com/arxpVBe.jpg) center no-repeat;
+  background: url(https://i.imgur.com/Tz3aeNV.jpg) center no-repeat;
   opacity: .8;
   background-size: cover;
-  height: 750px;
+  height: 650px;
   width: 100%;
   justify-content: center;
   padding-top: 250px;
-
+  margin-bottom: 20px;
 }
 
 
@@ -107,12 +114,11 @@ ul {
 }
 
 #map {
-  height: 400px; 
-  width: 50%;
-  margin-top: 40px;
-  margin-left: 500px;
-  margin-right: 50px;
-  margin-bottom: 20px;
+  height: 380px; 
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .search-results {
