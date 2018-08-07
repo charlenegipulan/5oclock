@@ -9,12 +9,12 @@
 <br>
 
 <div class="search-results">
+    <hr>
     <div class="results-list">
         <% spots.forEach(function(spot) { %>
-            <a href="/spots/<%= spot.id %>" target="_blank"
-              class="list-group-item">
+            <a href="/spots/<%= spot.id %>" target="_blank" class="list-group-item">
                <img src="<%= spot.image_url %>">
-               <%= spot.name %>
+               <h3 class="show-spot-name-text"><%= spot.name %> </h3>
                <%= spot.location.display_address %>
 
             </a>
