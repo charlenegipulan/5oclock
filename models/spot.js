@@ -8,6 +8,7 @@ var specialSchema = new Schema ({
     votes: {upvotes: Number, downvotes: Number},
     category: {type: String, enum: ['Food', 'Drink', 'Food & Drink', 'Other']},
     verified: {type: Boolean, default: false},
+    price: {type: String, enum: ['$', '$$', '$$$', '$$$$']},
     when: { hours: String, days: String}
 }, {
     timestamps: true

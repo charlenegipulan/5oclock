@@ -19,7 +19,12 @@
 <div class= "show-specials">
     <!-- specials go here -->
     <% spot.specials.forEach(function(special) { %>
-        <%= special.content %>
+        Category: <%= special.category %>
+        Days: <%= special.when.days %>
+        Hours: <%= special.when.hours %>
+        Price Range: <%= special.price %>
+        Deets: <%= special.content %>
+        Posted: <%= special.createdAt.toLocaleString() %>
     <% }); %>
 </div>
 <% if (user) { %> 

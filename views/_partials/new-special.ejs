@@ -11,16 +11,26 @@
                     <option value="Other">Other</option>
                 </select>
         </div>
+        <div class="form-group">
+            <label for="price">Select a price range</label>
+                <select class="form-control" id="price" name="price">
+                    <option selected>Select</option>
+                    <option value="$">$ ($1-$12)</option>
+                    <option value="$$">$$ ($13-$24)</option>
+                    <option value="$$$">$$$ ($25-$36)</option>
+                    <option value="$$$$">$$$$ ($37+)</option>
+                </select>
+        </div>
         <h4>When is this special available?</h4>
         <div>
             <div class="form-group">
                 <label for="specialDays">Day(s)</label>
-                <input type="text" class="form-control" id="specialDays" aria-describedby="daysHelp" placeholder="Enter days" name= "when[days]">
+                <input type="text" class="form-control" id="specialDays" aria-describedby="daysHelp" placeholder="Enter days" name= "when[days]"><br>
                 <small id="daysHelp" class="form-text text-muted">e.g. "Mon-Thurs", "Tues & Weds", or "Weekends"</small>
             </div>
             <div class="form-group">
                 <label name="specialHours">Hours</label>
-                <input type="hours" class="form-control" id="specialhours" aria-describedby="hoursHelp" placeholder="Enter hours" name= "when[hours]">
+                <input type="hours" class="form-control" id="specialhours" aria-describedby="hoursHelp" placeholder="Enter hours" name= "when[hours]"><br>
                 <small id="hoursHelp" class="form-text text-muted">e.g. "All Day", "5-8 PM", "After 6PM" </small>
             </div>
         </div>
