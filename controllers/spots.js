@@ -11,7 +11,6 @@ function index(req, res, next) {
     
 }
 
-
 function search(req, res, next) {
     var {lat, lng, location} = req.query;
     yelpApi.search(lat, lng, location).then(result => {
@@ -38,7 +37,15 @@ function getExistingOrNewSpot(yelpId) {
                     yelpId: business.id,
                     name: business.name,
                     address: business.location,
-                    is_closed: business.is_closed,
+                    // hours: {
+                    //     is_open_now: business.hours.is_open_now,
+                    //     open: [
+                    //     {
+                    //         day: business.hours.open.day,
+                    //         start: business.hours.open.start,
+                    //         end: Stringbusiness.hours.open.end
+                    //     }
+                    // ]},
                     coordinates: business.coordinates,
                     image: business.image_url,
                     website: business.url,

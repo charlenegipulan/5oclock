@@ -11,7 +11,6 @@
                <img src="<%= spot.image_url %>">
                <%= spot.name %>
                <%= spot.location.display_address %>
-               <%= spot.is_closed %>
             </a>
           <% }); %>
 </div>
@@ -70,6 +69,6 @@ function initMap(){
 </script>
 
 <!-- <script src="../public/javascript/main.js"></script>     -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvfoT8AuOU6lNHWI1y2r2MqMBh1isW3Ns&callback=initMap" type="text/javascript"></script> 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLEMAPS_KEY%>&callback=initMap" type="text/javascript"></script> 
  
 <%- include('./_partials/footer') %>
