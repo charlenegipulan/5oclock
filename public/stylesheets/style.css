@@ -244,11 +244,12 @@ ul {
 
 .website-text {
   word-wrap: break-word;
+} 
+
+#specials-form {
+  visibility: hidden;
 }
 
-.forms-container {
-
-}
 
 #specialContent {
   width: 250px;
