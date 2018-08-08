@@ -29,6 +29,7 @@ var businesses = [
     <% spots.forEach(function(spot) { %>
         {
             name: `<%= spot.name %>`,
+            address: `<%= spot.location.display_address.join(' ') %>`,
             lat: <%= spot.coordinates.latitude %>,
             lng: <%= spot.coordinates.longitude %>
         }, 
@@ -57,11 +58,15 @@ function initMap(){
         zoom: 14,
         center: center
     });
+    
+
     //draw markers for each business
     businesses.forEach(function(b) {
+        console.log(JSON.stringify(b))
         var marker = new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
         var infoWindow = new google.maps.InfoWindow({ 
-            content: `<h3>${b.name}</h3>` 
+            content: `<h3>${b.name}</h3><br>
+                    <p>${b.address}</p>` 
         });
         marker.addListener('click', function() {
             if (openedInfoWindow) openedInfoWindow.close();

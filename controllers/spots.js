@@ -15,9 +15,12 @@ function search(req, res, next) {
     var {lat, lng, location} = req.query;
     yelpApi.search(lat, lng, location).then(result => {
         var spots = result.businesses;
+        console.log(spots[0]);
         res.render('search', {spots, user: req.user});
     });
 }
+
+
 
 function showSpot(req, res, next) {
     var yelpId = req.params.yelpId;
