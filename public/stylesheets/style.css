@@ -266,6 +266,7 @@ ul {
 #specials-form {
   visibility: hidden;
   position: fixed;
+  right: 150px;
 }
 
 #specialContent {
@@ -277,6 +278,11 @@ ul {
 #specialDays, #specialhours {
   margin-left: 90px;
   width: 200px;
+}
+
+.show-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .forms-container{
@@ -296,6 +302,7 @@ ul {
 
 .show-specials {
   margin-top: 10px;
+  width: 60%;
   margin-left: 100px;
 }
 
