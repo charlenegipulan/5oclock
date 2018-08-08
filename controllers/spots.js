@@ -37,15 +37,7 @@ function getExistingOrNewSpot(yelpId) {
                     yelpId: business.id,
                     name: business.name,
                     address: business.location,
-                    // hours: {
-                    //     is_open_now: business.hours.is_open_now,
-                    //     open: [
-                    //     {
-                    //         day: business.hours.open.day,
-                    //         start: business.hours.open.start,
-                    //         end: Stringbusiness.hours.open.end
-                    //     }
-                    // ]},
+                    isOpen: business.hours[0].is_open_now,
                     coordinates: business.coordinates,
                     image: business.image_url,
                     website: business.url,
