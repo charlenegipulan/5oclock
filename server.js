@@ -38,7 +38,7 @@ app.use(passport.session());
 app.use(methodOverride('_method', {methods: ['GET', 'POST']}));
 app.use('/', indexRouter);
 app.use('/spots', spotsRouter);
-app.use('/api/specials', apiRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
