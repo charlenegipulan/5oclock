@@ -13,9 +13,13 @@
     <div class="results-list">
         <% spots.forEach(function(spot) { %>
             <a href="/spots/<%= spot.id %>" class="list-group-item">
-               <img src="<%= spot.image_url %>">
-               <h3 class="show-spot-name-text"><%= spot.name %> </h3>
-               <%= spot.location.display_address %>
+                <img src="<%= spot.image_url %>">
+                <h3 class="show-spot-name-text"><%= spot.name %> </h3>
+                <p><%= spot.location.display_address %></p>
+                <% if (modelSpots.some(ms => ms.yelpId === spot.id)) { %>
+                    <h3>🔥</h3>
+                <% } %>
+
 
             </a>
         <% }); %>
@@ -29,6 +33,7 @@ var businesses = [
     <% spots.forEach(function(spot) { %>
         {
             name: `<%= spot.name %>`,
+            address: `<%= spot.location.display_address.join(' ') %>`,
             lat: <%= spot.coordinates.latitude %>,
             lng: <%= spot.coordinates.longitude %>
         }, 
@@ -57,11 +62,14 @@ function initMap(){
         zoom: 14,
         center: center
     });
+    
+
     //draw markers for each business
     businesses.forEach(function(b) {
         var marker = new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
         var infoWindow = new google.maps.InfoWindow({ 
-            content: `<h3>${b.name}</h3><br><a href="#">Get directions.</a> ` 
+            content: `<h3>${b.name}</h3><br>
+                    <p>${b.address}</p>` 
         });
         marker.addListener('click', function() {
             if (openedInfoWindow) openedInfoWindow.close();

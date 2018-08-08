@@ -205,6 +205,7 @@ ul {
 .search-results img {
   height: 240px;
   width: 350px;
+  
   float: left;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -215,19 +216,23 @@ ul {
 .show-spot-container {
   display: flex;
   flex-direction: row;
-  margin: 5px 50px 5px 150px;
+  margin: 5px 40px 5px 100px;
 }
 
 .show-left-spot-container {
   margin-top: 50px;
+  width: 30%;
 }
 
 .show-spot-right-container {
-  margin-left: 100px;
+  margin-left: 80px;
   margin-top: 10px;
   width: 60%;
   display: flex;
   flex-direction: row;
+  background-color: #FAFBFC;
+  padding: 20px;
+  box-shadow: 5px 10px 10px -10px black;
 }
 
 .show-spot-container img {
@@ -267,6 +272,7 @@ ul {
   visibility: hidden;
   position: fixed;
   right: 150px;
+  margin-top: 30px;
 }
 
 #specialContent {
@@ -302,7 +308,7 @@ ul {
 
 .show-specials {
   margin-top: 10px;
-  width: 60%;
+  width: 80%;
   margin-left: 100px;
 }
 
@@ -317,14 +323,19 @@ ul {
 }
 
 .spot-info-panel {
-  width: 60%
+  width: 100%;
+}
+
+.forms-panel {
+  margin-top: 60px;
 }
 
 #submitBtn {
-  width: 100px;
-  height: 30px;
-  padding: 5px;
-  margin-top: -15px;
+  width: 80px;
+  height: 25px;
+  font-size: 15px;
+  margin-top: -20px;
+  padding: 2px;
 }
 
 input[type="text"], textarea, button {

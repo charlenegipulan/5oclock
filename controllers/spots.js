@@ -13,11 +13,18 @@ function index(req, res, next) {
 
 function search(req, res, next) {
     var {lat, lng, location} = req.query;
+    // console.log(lat, lng, location);
     yelpApi.search(lat, lng, location).then(result => {
         var spots = result.businesses;
-        res.render('search', {spots, user: req.user});
+        Spot.find({yelpId: {$in: spots.map(s => s.id)}}, function(err, modelSpots) {
+            modelSpots = modelSpots.filter(s => s.specials.length);
+            console.log(modelSpots);
+            res.render('search', {modelSpots, spots, user: req.user});
+        });
     });
 }
+
+
 
 function showSpot(req, res, next) {
     var yelpId = req.params.yelpId;
