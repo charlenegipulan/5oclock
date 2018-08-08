@@ -24,6 +24,8 @@ function search(req, res, next) {
     });
 }
 
+
+
 function showSpot(req, res, next) {
     var yelpId = req.params.yelpId;
     getExistingOrNewSpot(yelpId).then(function(spot) {
