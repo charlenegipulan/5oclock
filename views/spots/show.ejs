@@ -4,7 +4,7 @@
     <div class="show-left-spot-container">
         <img src="<%= spot.image %>">
     </div>
-
+    
     <div class="show-spot-right-container">
         <h1 id="spot-name"> <%= spot.name %> </h1>
         <hr class="name-divider">
@@ -12,7 +12,11 @@
         <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
         <h5 class="label-text"> Hours of Operation: <span style="font-size: 20px"><%= spot.hours %> </span></h5> <br>
         <h4 class="website-text"> Website: <a href="<%= spot.website %>"> Link to Yelp Page</a></h4><br>
-        <button type="button" id="formButton" onclick="showForm()">Add a Special</button>
+        <% if (user) { %> 
+            <button type="button" id="formButton" onclick="showForm()">Add a Special</button>
+        <% }  else { %>
+            <h3> Login to Add a Special!</h3>    
+        <% } %>
     </div>
 
 
@@ -33,15 +37,9 @@
         </div>
     <% }); %>
 </div>
-<% if (user) { %> 
-    <%- include('../_partials/new-special') %>;
-<% }  else { %>
-    <h3> Login to Add a Special!</h3>    
-<% } %>
 
     <div class="forms-container">
     
-        <h3>Add a new special</h3>
         
         <form id="specials-form" action="/spots/<%= spot.id %>/specials" method="POST">
             <div class="form-group">
