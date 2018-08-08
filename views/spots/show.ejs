@@ -24,10 +24,10 @@
             <!-- specials go here -->
             <% spot.specials.forEach(function(special) { %>
                 <div id="<%= special.id %>">
-                    Category: <%= special.category %>
-                    Days: <%= special.when.days %>
+                    Category: <%= special.category %><br>
+                    Days: <%= special.when.days %><br>
                     Hours: <%= special.when.hours %>
-                    Price Range: <%= special.price %>
+                    Price Range: <%= special.price %><br>
                     Deets: <%= special.content %>
                     Posted: <%= special.createdAt.toLocaleString() %>
                     <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️"><br>
