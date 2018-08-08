@@ -1,16 +1,7 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: black;
-  font-family: 'Do Hyeon', sans-serif;
-  text-decoration: none;
-}
-
 a:hover {
   text-decoration: none;
 }
+
 
 .log-in-text {
   color: white;
@@ -30,11 +21,20 @@ a:hover {
 
 .btn btn-primary {
   display: inline;
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+}
+
+#main-search-btn {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
 }
 
 
 #nav {
-  background-color: rgba(171, 171, 171, .1);
+  background-color: #F7F6F5;
   width: 100%;
   height: 70px;
   padding-top: 20px;
@@ -45,32 +45,31 @@ a:hover {
 
 
 .container {
-  margin-top: 0 auto;
-  background: url(https://i.imgur.com/Tz3aeNV.jpg) center no-repeat;
-  opacity: .8;
+  background: url(https://i.imgur.com/VWg1tL4.jpg) center no-repeat;
   background-size: cover;
   height: 650px;
   width: 100%;
   justify-content: center;
   padding-top: 250px;
-  margin-bottom: -30px;
 }
 
 .center-container {
-  background-color: rgba(255, 255, 255, .7);
-  margin-left: 150px;
-  width: 80%;
-  height: 100px;
-  padding-top: 5px;
+  background-color: rgba(255, 255, 255, .2);
+  width: 50%;
+  height: 270px;
+  padding-top: 10px;
+  text-align: center;
+  margin: 0 auto; 
 }
 
 
 .title {
-  font-size: 80px;
+  font-size: 110px;
   font-family: 'Homemade Apple', cursive;
   text-align: center;
   color: black;
 }
+
 
 .search-panel {
   padding-top: 5px;
@@ -80,17 +79,33 @@ a:hover {
 }
 
 .btn {
-  background-color: rgb(200, 158, 55);
+  background-color: #DFB465;
   border: none;
   height: 50px;
   width: 90px;
   font-size: 18px;
+  outline: none;
 }
 
-.landing-page-divider {
-  height: 5px;
-  margin-top: 80px;
-  margin-bottom: -30px;
+.icons-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#landing-page-divider {
+  margin-top: 20px;
+  height: 2px;
+  width: 80%;
+  background-color: rgb(171, 171, 171);
+  border: none;
+}
+
+#spot-divider {
+  margin-top: 10px;
+  height: 2px;
+  width: 85%;
+  background-color: rgb(171, 171, 171);
+  border: none;
 }
 
 
@@ -99,44 +114,55 @@ ul {
 }
 
 .title-link {
-  margin-left: 600px;
   margin-top: -15px;
-  margin-bottom: -15px;
-  display: block;
+  position: absolute;
+  left: 45%;
 }
 
 .home-link {
-  font-size: 35px;
-  margin-top: 10px;
+  font-size: 60px;
   text-decoration: none;
-  display: inline-block;
-  font-family: 'Russo One', sans-serif;
-  color: #515151;
+  font-family: 'Homemade Apple', cursive;
+  color: black;
+  letter-spacing: -1px;
 }
 
 .home-link:hover {
   text-decoration: none;
 }
 
-.category {
-  height: 40px;
+#category {
+  width: 200px;
+  margin-left: 10px;
+}
+
+#price {
+  width: 200px;
 }
 
 .form-control {
-  height: 50px;
+  height: 30px;
   width: 700px;
   display: inline;
+}
+
+#daysHelp {
+  width: 200px;
 }
 
 .search-bar {
   display: flex;
   flex-direction: row;
-  margin-top: 80px;
-  margin-left: 450px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#main-search-bar {
+  height: 50px;
 }
 
 #map {
-  height: 370px; 
+  height: 365px; 
   width: 60%;
   margin: 0 auto;
   margin-top: 30px;
@@ -179,6 +205,7 @@ ul {
 .search-results img {
   height: 240px;
   width: 350px;
+  
   float: left;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -189,19 +216,23 @@ ul {
 .show-spot-container {
   display: flex;
   flex-direction: row;
-  margin: 30px;
-  padding-left: 30px;
+  margin: 5px 40px 5px 100px;
 }
 
 .show-left-spot-container {
-  margin-top: 100px;
+  margin-top: 50px;
+  width: 30%;
 }
 
 .show-spot-right-container {
-  margin-left: 70px;
-  margin-top: 100px;
-  padding-right: 10px;
+  margin-left: 80px;
+  margin-top: 10px;
   width: 60%;
+  display: flex;
+  flex-direction: row;
+  background-color: #FAFBFC;
+  padding: 20px;
+  box-shadow: 5px 10px 10px -10px black;
 }
 
 .show-spot-container img {
@@ -230,8 +261,85 @@ ul {
 
 .name-divider {
   margin-top: 20px;
+  height: 30px;
 }
 
 .website-text {
   word-wrap: break-word;
+} 
+
+#specials-form {
+  visibility: hidden;
+  position: fixed;
+  right: 150px;
+  margin-top: 30px;
+}
+
+#specialContent {
+  width: 330px;
+  height: 40px;
+  margin-top: -2px;
+}
+
+#specialDays, #specialhours {
+  margin-left: 90px;
+  width: 200px;
+}
+
+.show-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.forms-container{
+  display: flex;
+  flex-direction: row;
+}
+
+#formButton {
+  background-color: #DFB465;
+  border: none;
+  height: 50px;
+  width: 150px;
+  font-size: 20px;
+  color: white;  outline: none;
+  box-shadow:none !important;
+}
+
+.show-specials {
+  margin-top: 10px;
+  width: 80%;
+  margin-left: 100px;
+}
+
+#current-specials-text {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 40px;
+}
+
+.secondary-content {
+  background-color: white;
+  border: none;
+}
+
+.spot-info-panel {
+  width: 100%;
+}
+
+.forms-panel {
+  margin-top: 60px;
+}
+
+#submitBtn {
+  width: 80px;
+  height: 25px;
+  font-size: 15px;
+  margin-top: -20px;
+  padding: 2px;
+}
+
+input[type="text"], textarea, button {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
 }

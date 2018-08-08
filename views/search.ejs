@@ -13,9 +13,13 @@
     <div class="results-list">
         <% spots.forEach(function(spot) { %>
             <a href="/spots/<%= spot.id %>" class="list-group-item">
-               <img src="<%= spot.image_url %>">
-               <h3 class="show-spot-name-text"><%= spot.name %> </h3>
-               <%= spot.location.display_address %>
+                <img src="<%= spot.image_url %>">
+                <h3 class="show-spot-name-text"><%= spot.name %> </h3>
+                <p><%= spot.location.display_address %></p>
+                <% if (modelSpots.some(ms => ms.yelpId === spot.id)) { %>
+                    <h3>🔥</h3>
+                <% } %>
+
 
             </a>
         <% }); %>
