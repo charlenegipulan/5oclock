@@ -5,7 +5,10 @@ var Schema = mongoose.Schema;
 var specialSchema = new Schema ({
     content: String,
     hot: {type: Boolean, default: false}, 
-    votes: {upvotes: Number, downvotes: Number},
+    votes: {
+        upvotes: {type: Number, default: 0},
+        downvotes: {type: Number, default: 0}
+    },
     category: {type: String, enum: ['Food', 'Drink', 'Food & Drink', 'Other']},
     verified: {type: Boolean, default: false},
     price: {type: String, enum: ['$', '$$', '$$$', '$$$$']},

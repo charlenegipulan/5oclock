@@ -20,7 +20,6 @@
                 <h3> Login to Add a Special!</h3>    
             <% } %>
         </div>
-
     </div>
 </div>
 
@@ -30,19 +29,21 @@
 
     <div class= "show-specials">
         <h4 id="current-specials-text">Current Specials</h4>
-        <!-- specials go here -->
-        <% spot.specials.forEach(function(special) { %>
-            <div id="<%= special.id %>">
-                Category: <%= special.category %><br>
-                Days: <%= special.when.days %><br>
-                Price Range: <%= special.price %><br>
-                Deets: <%= special.content %>
-                Posted: <%= special.createdAt.toLocaleString() %>
-                <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️"><br>
-                <button class="upvote">👍</button><button class="downvote">👎</button> 
-            </div>
-        <% }); %>
-    </div>
+            <!-- specials go here -->
+            <% spot.specials.forEach(function(special) { %>
+                <div id="special-<%= special.id %>">
+                    <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️"><br>
+                    Category: <%= special.category %><br>
+                    Days: <%= special.when.days %><br>
+                    Hours: <%= special.when.hours %><br>
+                    Price Range: <%= special.price %><br>
+                    Deets: <%= special.content %><br>
+                    Posted: <%= special.createdAt.toLocaleString() %><br>
+                    <button onclick="upvote('<%= special.id %>')">👍</button><div class="upvote"><%= special.votes.upvotes %></div>
+                    <button onclick="downvote('<%= special.id %>')">👎</button><div class="downvote"><%= special.votes.downvotes %></div> 
+                </div>
+            <% }); %>
+        </div>
     
     <div class="forms-panel">
         <form id="specials-form" action="/spots/<%= spot.id %>/specials" method="POST">
@@ -90,10 +91,10 @@
     </div>
 </div>
 
-
-<script>
-
     
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/rt-votes.js"></script>
+<script>
     function showForm() {
         var popUp = document.getElementById("specials-form");
         if (getComputedStyle(popUp, null).getPropertyValue('visibility') === "hidden") {
@@ -112,9 +113,8 @@
             document.getElementById(specialId).remove();
         });
     }
-    
-</script>
 
+</script>
 
 
 <%- include('../_partials/footer') %>
