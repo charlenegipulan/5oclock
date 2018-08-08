@@ -5,7 +5,10 @@ var Schema = mongoose.Schema;
 var specialSchema = new Schema ({
     content: String,
     hot: {type: Boolean, default: false}, 
-    votes: {upvotes: Number, downvotes: Number},
+    votes: {
+        upvotes: {type: Number, default: 0},
+        downvotes: {type: Number, default: 0}
+    },
     category: {type: String, enum: ['Food', 'Drink', 'Food & Drink', 'Other']},
     verified: {type: Boolean, default: false},
     price: {type: String, enum: ['$', '$$', '$$$', '$$$$']},
@@ -24,16 +27,7 @@ var spotSchema = new Schema ({
         city: String, 
         country: String
     },
-    hours: {
-        is_open_now: Boolean,
-        open: [
-            {
-                day: Number,
-                start: String,
-                end: String
-            }
-        ]
-    },
+    isOpen: Boolean,
     coordinates: {latitude: Number, longitude: Number},
     phone: String,
     website: String,

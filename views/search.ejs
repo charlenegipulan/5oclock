@@ -66,6 +66,7 @@ function initMap(){
         var infoWindow = new google.maps.InfoWindow({ 
             content: `<h3>${b.name}</h3><br>
                     <p>${b.address}</p>` 
+
         });
         marker.addListener('click', function() {
             if (openedInfoWindow) openedInfoWindow.close();

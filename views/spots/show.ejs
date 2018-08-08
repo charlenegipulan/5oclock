@@ -1,42 +1,116 @@
 <%- include('../_partials/head') %>
 
-<div class="show-spot-container">
-    <div class="show-left-spot-container">
-        <img src="<%= spot.image %>">
-    </div>
 
-    <div class="show-spot-right-container">
-        <h1 id="spot-name"> <%= spot.name %> </h1>
-        <hr class="name-divider">
-        <h5 class="label-text"> Address: <span style="font-size: 20px"><%= spot.address.address1 %>, <%= spot.address.city %>, <%= spot.address.state %>, <%= spot.address.zip_code %> </span></h5><br>
-        <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
-        <h5 class="label-text"> Hours of Operation: <span style="font-size: 20px"><%= spot.hours %> </span></h5> <br>
-        <h4 class="website-text"> Website: <a href="<%= spot.website %>"> Link to Yelp Page</a></h4><br>
-    </div>
+<div class="show-container">
 
-</div>
-
-<div class= "show-specials">
-    <!-- specials go here -->
-    <% spot.specials.forEach(function(special) { %>
-        <div id="<%= special.id %>">
-            <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="X"> 
-            Category: <%= special.category %>
-            Days: <%= special.when.days %>
-            Hours: <%= special.when.hours %>
-            Price Range: <%= special.price %>
-            Deets: <%= special.content %>
-            Posted: <%= special.createdAt.toLocaleString() %>
+    <div class="show-spot-container">
+        <div class="show-left-spot-container">
+            <img src="<%= spot.image %>">
         </div>
-    <% }); %>
-</div>
-<% if (user) { %> 
-    <%- include('../_partials/new-special') %>;
-<% }  else { %>
-    <h3> Login to Add a Special!</h3>    
-<% } %>
+    
+        <div class="show-spot-right-container">
+            <div class="spot-info-panel">
+                <h1 id="spot-name"> <%= spot.name %> </h1>
+                <hr class="name-divider">
+                <h5 class="label-text"> Address: <span style="font-size: 20px"><%= spot.address.address1 %>, <%= spot.address.city %>, <%= spot.address.state %>, <%= spot.address.zip_code %> </span></h5><br>
+                <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
+                <h5 class="label-text"><span style="font-size: 20px"> <%= spot.isOpen ? 'Open now!' : 'Currently closed :('%> </span></h5> <br>
+                <h4 class="website-text"> Website: <a href="<%= spot.website %>"> Link to Yelp Page</a></h4><br>
+            
+                <% if (user) { %> 
+                    <button type="button" id="formButton" onclick="showForm()">Add a Special</button>
+                 <% }  else { %>
+                    <h3> Login to Add a Special!</h3>    
+                <% } %>
+            </div>
+        </div>
 
+        <div class="forms-panel">
+                <form id="specials-form" action="/spots/<%= spot.id %>/specials" method="POST">
+                    <div class="form-group">
+                        <label for="category">Select a category&nbsp;&nbsp;</label>
+                            <select class="form-control" id="category" name="category">
+                                <option selected>Select</option>
+                                <option value="Food">Food</option>
+                                <option value="Drink">Drink</option>
+                                <option value="Food & Drink">Food & Drink</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    <div class="form-group">
+                        <label for="price">Select a price range</label>
+                            <select class="form-control" id="price" name="price">
+                                <option selected>Select</option>
+                                <option value="$">$ ($1-$12)</option>
+                                <option value="$$">$$ ($13-$24)</option>
+                                <option value="$$$">$$$ ($25-$36)</option>
+                                <option value="$$$$">$$$$ ($37+)</option>
+                            </select>
+                    </div>
+                    <h5>When is this special available?</h5>
+                    <div>
+                        <div class="form-group">
+                            <label for="specialDays">Day(s)</label>
+                            <input type="text" class="form-control" id="specialDays" aria-describedby="daysHelp" placeholder="Enter days" name= "when[days]"><br>
+                            <small id="daysHelp" class="form-text text-muted">e.g. "Mon-Thurs", "Tues & Weds", or "Weekends"</small>
+                        </div>
+                        <div class="form-group">
+                            <label name="specialHours">Hours</label>
+                            <input type="hours" class="form-control" id="specialhours" aria-describedby="hoursHelp" placeholder="Enter hours" name= "when[hours]"><br>
+                            <small id="hoursHelp" class="form-text text-muted">e.g. "All Day", "5-8 PM", "After 6PM" </small>
+                        </div> 
+                    </div>
+              
+                    <h5>Describe the special</h5>
+                    <div class="form-group">
+                        <label for="specialContent"></label>
+                        <textarea class="form-control" id="specialContent" rows="3" name="content"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                </form>
+                </div>
+                
+    </div>
+
+    <div class="forms-container">
+
+
+        <div class= "show-specials">
+            <hr id="spot-divider">
+            <h4 id="current-specials-text">Current Specials</h4>
+            <!-- specials go here -->
+            <% spot.specials.forEach(function(special) { %>
+                <div id="special-<%= special.id %>">
+                    <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️"><br>
+                    Category: <%= special.category %><br>
+                    Days: <%= special.when.days %><br>
+                    Hours: <%= special.when.hours %><br>
+                    Price Range: <%= special.price %><br>
+                    Deets: <%= special.content %><br>
+                    Posted: <%= special.createdAt.toLocaleString() %><br>
+                    <button onclick="upvote('<%= special.id %>')">👍</button><div class="upvote"><%= special.votes.upvotes %></div>
+                    <button onclick="downvote('<%= special.id %>')">👎</button><div class="downvote"><%= special.votes.downvotes %></div> 
+                </div>
+            <% }); %>
+        </div>
+    
+    
+    </div>
+</div>
+
+    
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/rt-votes.js"></script>
 <script>
+    function showForm() {
+        var popUp = document.getElementById("specials-form");
+        if (getComputedStyle(popUp, null).getPropertyValue('visibility') === "hidden") {
+            popUp.style.visibility = "visible";
+        } else {
+            popUp.style.visibility = "hidden";
+        }
+    }
+
     function destroySpecial(specialId) {
         console.log(specialId);
         fetch({
@@ -46,6 +120,8 @@
             document.getElementById(specialId).remove();
         });
     }
-    
+
 </script>
+
+
 <%- include('../_partials/footer') %>
