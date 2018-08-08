@@ -81,12 +81,12 @@
             <% spot.specials.forEach(function(special) { %>
                 <div id="special-<%= special.id %>">
                     <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️"><br>
-                    Category: <%= special.category %><br>
-                    Days: <%= special.when.days %><br>
-                    Hours: <%= special.when.hours %><br>
-                    Price Range: <%= special.price %><br>
-                    Deets: <%= special.content %><br>
-                    Posted: <%= special.createdAt.toLocaleString() %><br>
+                    <span style="color:orange">Category:</span> <span style="font-size: 20px"><%= special.category %> </span> <br>
+                    <span style="color:orange">Days:</span> <span style="font-size: 20px"><%= special.when.days %> </span> <br>
+                    <span style="color:orange">Hours:</span> <span style="font-size: 20px"><%= special.when.hours %> </span> <br>
+                    <span style="color:orange">Price Range:</span> <span style="font-size: 20px"><%= special.price %> </span> <br>
+                    <span style="color:orange">Deets:</span> <span style="font-size: 40px"><%= special.content %></span><br>
+                    <span style="color:orange">Posted: </span><%= special.createdAt.toLocaleString() %><br>
                     <button onclick="upvote('<%= special.id %>')">👍</button><div class="upvote"><%= special.votes.upvotes %></div>
                     <button onclick="downvote('<%= special.id %>')">👎</button><div class="downvote"><%= special.votes.downvotes %></div> 
                 </div>
