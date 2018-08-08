@@ -1,13 +1,3 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: black;
-  font-family: 'Do Hyeon', sans-serif;
-  text-decoration: none;
-}
-
 a:hover {
   text-decoration: none;
 }
@@ -34,7 +24,7 @@ a:hover {
 
 
 #nav {
-  background-color: rgb(233, 199, 126);
+  background-color: #F7F6F5;
   width: 100%;
   height: 70px;
   padding-top: 20px;
@@ -45,7 +35,6 @@ a:hover {
 
 
 .container {
-  margin-top: 0 auto;
   background: url(https://i.imgur.com/Tz3aeNV.jpg) center no-repeat;
   opacity: .8;
   background-size: cover;
@@ -53,21 +42,21 @@ a:hover {
   width: 100%;
   justify-content: center;
   padding-top: 250px;
-  margin-bottom: -30px;
 }
 
 .center-container {
-  background-color: rgba(255, 255, 255, .7);
-  margin-left: 150px;
-  width: 80%;
-  height: 100px;
-  padding-top: 5px;
+  background-color: rgba(255, 255, 255, .2);
+  width: 50%;
+  height: 270px;
+  padding-top: 10px;
+  text-align: center;
+  margin: 0 auto; 
 }
 
 
 .title {
-  font-size: 80px;
-  font-family: 'Homemade Apple', cursive;
+  font-size: 110px;
+  font-family: 'Abril Fatface', cursive;
   text-align: center;
   color: black;
 }
@@ -87,10 +76,17 @@ a:hover {
   font-size: 18px;
 }
 
-.landing-page-divider {
-  height: 5px;
-  margin-top: 80px;
-  margin-bottom: -30px;
+.icons-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#landing-page-divider {
+  margin-top: 20px;
+  height: 2px;
+  width: 80%;
+  background-color: rgb(171, 171, 171);
+  border: none;
 }
 
 
@@ -99,19 +95,16 @@ ul {
 }
 
 .title-link {
+  margin-top: -25px;
   margin-left: 600px;
-  margin-top: -15px;
-  margin-bottom: -15px;
-  display: block;
 }
 
 .home-link {
-  font-size: 35px;
-  margin-top: 10px;
+  font-size: 60px;
   text-decoration: none;
-  display: inline-block;
-  font-family: 'Russo One', sans-serif;
-  color: white;
+  font-family: 'Abril Fatface', cursive;
+  color: black;
+  letter-spacing: -1px;
 }
 
 .home-link:hover {
@@ -120,7 +113,7 @@ ul {
 
 #category {
   width: 200px;
-  margin-right: 80px;
+  margin-left: 10px;
 }
 
 #price {
@@ -128,7 +121,7 @@ ul {
 }
 
 .form-control {
-  height: 50px;
+  height: 30px;
   width: 700px;
   display: inline;
 }
@@ -140,8 +133,9 @@ ul {
 .search-bar {
   display: flex;
   flex-direction: row;
-  margin-top: 80px;
+  margin-top: 10px;
   margin-left: 450px;
+  position: relative;
 }
 
 #map {
@@ -211,6 +205,8 @@ ul {
   margin-top: 30px;
   padding-right: 10px;
   width: 60%;
+  display: flex;
+  flex-direction: row;
 }
 
 .show-spot-container img {
@@ -248,16 +244,41 @@ ul {
 
 #specials-form {
   visibility: hidden;
+  position: absolute;
+  right: 150px;
 }
 
 
 #specialContent {
-  width: 250px;
-  height: 150px;
-  margin-top: 10px;
+  width: 330px;
+  height: 40px;
+  margin-top: -2px;
 }
 
 #specialDays, #specialhours {
-  margin-left: 100px;
+  margin-left: 90px;
   width: 200px;
+}
+
+#formButton {
+  background-color: #DFB465;
+  border: none;
+  height: 50px;
+  width: 150px;
+  font-size: 20px;
+  color: white;
+}
+
+.show-specials {
+  margin-top: 120px;
+  margin-left: 30px;
+}
+
+.secondary-content {
+  background-color: white;
+  border: none;
+}
+
+.spot-info-panel {
+  width: 70%
 }
