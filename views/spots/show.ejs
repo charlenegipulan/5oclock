@@ -13,6 +13,7 @@
             <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
             <h5 class="label-text"><span style="font-size: 20px"> <%= spot.isOpen ? 'Open now!' : 'Currently closed :('%> </span></h5> <br>
             <h4 class="website-text"> Website: <a href="<%= spot.website %>"> Link to Yelp Page</a></h4><br>
+            
             <% if (user) { %> 
                 <button type="button" id="formButton" onclick="showForm()">Add a Special</button>
             <% }  else { %>
@@ -20,32 +21,30 @@
             <% } %>
         </div>
 
-        <div class= "show-specials">
-            <!-- specials go here -->
-            <% spot.specials.forEach(function(special) { %>
-                <div id="<%= special.id %>">
-                    Category: <%= special.category %><br>
-                    Days: <%= special.when.days %><br>
-                    Hours: <%= special.when.hours %>
-                    Price Range: <%= special.price %><br>
-                    Deets: <%= special.content %>
-                    Posted: <%= special.createdAt.toLocaleString() %>
-                    <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️"><br>
-                    <button class="upvote">👍</button><button class="downvote">👎</button> 
-                </div>
-            <% }); %>
-        </div>
-
     </div>
-
-    </div>  
-
 </div>
 
+<div class="forms-container">
 
-    <div class="forms-container">
+    <hr id="spot-divider">
+
+    <div class= "show-specials">
+        <h4 id="current-specials-text">Current Specials</h4>
+        <!-- specials go here -->
+        <% spot.specials.forEach(function(special) { %>
+            <div id="<%= special.id %>">
+                Category: <%= special.category %><br>
+                Days: <%= special.when.days %><br>
+                Price Range: <%= special.price %><br>
+                Deets: <%= special.content %>
+                Posted: <%= special.createdAt.toLocaleString() %>
+                <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️"><br>
+                <button class="upvote">👍</button><button class="downvote">👎</button> 
+            </div>
+        <% }); %>
+    </div>
     
-        
+    <div class="forms-panel">
         <form id="specials-form" action="/spots/<%= spot.id %>/specials" method="POST">
             <div class="form-group">
                 <label for="category">Select a category&nbsp;&nbsp;</label>
@@ -57,7 +56,7 @@
                         <option value="Other">Other</option>
                     </select>
                 </div>
-                <div class="form-group">
+            <div class="form-group">
                 <label for="price">Select a price range</label>
                     <select class="form-control" id="price" name="price">
                         <option selected>Select</option>
@@ -81,15 +80,15 @@
                 </div> 
             </div>
       
-            
             <h5>Describe the special</h5>
             <div class="form-group">
                 <label for="specialContent"></label>
                 <textarea class="form-control" id="specialContent" rows="3" name="content"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
         </form>
     </div>
+</div>
 
 
 <script>
