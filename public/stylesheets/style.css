@@ -223,7 +223,7 @@ ul {
 }
 
 .show-spot-right-container {
-  margin-left: 100px;
+  margin-left: 50px;
   margin-top: 10px;
   width: 60%;
   display: flex;
@@ -267,6 +267,7 @@ ul {
   visibility: hidden;
   position: fixed;
   right: 150px;
+  margin-top: 30px;
 }
 
 #specialContent {
@@ -317,7 +318,11 @@ ul {
 }
 
 .spot-info-panel {
-  width: 60%
+  width: 80%;
+}
+
+.forms-panel {
+  margin-top: 80px;
 }
 
 #submitBtn {
