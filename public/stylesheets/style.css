@@ -2,6 +2,7 @@ a:hover {
   text-decoration: none;
 }
 
+
 .log-in-text {
   color: white;
   background-color: black;
@@ -20,6 +21,15 @@ a:hover {
 
 .btn btn-primary {
   display: inline;
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+}
+
+#main-search-btn {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
 }
 
 
@@ -35,8 +45,7 @@ a:hover {
 
 
 .container {
-  background: url(https://i.imgur.com/Tz3aeNV.jpg) center no-repeat;
-  opacity: .8;
+  background: url(https://i.imgur.com/VWg1tL4.jpg) center no-repeat;
   background-size: cover;
   height: 650px;
   width: 100%;
@@ -56,10 +65,11 @@ a:hover {
 
 .title {
   font-size: 110px;
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Homemade Apple', cursive;
   text-align: center;
   color: black;
 }
+
 
 .search-panel {
   padding-top: 5px;
@@ -74,6 +84,7 @@ a:hover {
   height: 50px;
   width: 90px;
   font-size: 18px;
+  outline: none;
 }
 
 .icons-container {
@@ -89,20 +100,29 @@ a:hover {
   border: none;
 }
 
+#spot-divider {
+  margin-top: 10px;
+  height: 2px;
+  width: 85%;
+  background-color: rgb(171, 171, 171);
+  border: none;
+}
+
 
 ul {
   list-style-type: none;
 }
 
 .title-link {
-  margin-top: -25px;
-  margin-left: 600px;
+  margin-top: -15px;
+  position: absolute;
+  left: 45%;
 }
 
 .home-link {
   font-size: 60px;
   text-decoration: none;
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Homemade Apple', cursive;
   color: black;
   letter-spacing: -1px;
 }
@@ -135,6 +155,10 @@ ul {
   flex-direction: row;
   margin-top: 10px;
   text-align: center;
+}
+
+#main-search-bar {
+  height: 50px;
 }
 
 #map {
@@ -191,18 +215,16 @@ ul {
 .show-spot-container {
   display: flex;
   flex-direction: row;
-  margin: 5px 30px 30px 5px;
-  padding-left: 30px;
+  margin: 5px 50px 5px 150px;
 }
 
 .show-left-spot-container {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .show-spot-right-container {
-  margin-left: 70px;
-  margin-top: 30px;
-  padding-right: 10px;
+  margin-left: 100px;
+  margin-top: 10px;
   width: 60%;
   display: flex;
   flex-direction: row;
@@ -243,10 +265,8 @@ ul {
 
 #specials-form {
   visibility: hidden;
-  position: absolute;
-  right: 150px;
+  position: fixed;
 }
-
 
 #specialContent {
   width: 330px;
@@ -259,18 +279,29 @@ ul {
   width: 200px;
 }
 
+.forms-container{
+  display: flex;
+  flex-direction: row;
+}
+
 #formButton {
   background-color: #DFB465;
   border: none;
   height: 50px;
   width: 150px;
   font-size: 20px;
-  color: white;
+  color: white;  outline: none;
+  box-shadow:none !important;
 }
 
 .show-specials {
-  margin-top: 120px;
-  margin-left: 30px;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+#current-specials-text {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 40px;
 }
 
 .secondary-content {
@@ -279,5 +310,18 @@ ul {
 }
 
 .spot-info-panel {
-  width: 70%
+  width: 60%
+}
+
+#submitBtn {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  margin-top: -15px;
+}
+
+input[type="text"], textarea, button {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
 }
