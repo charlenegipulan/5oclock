@@ -1,33 +1,36 @@
 <%- include('../_partials/head') %>
 
-<div class="show-spot-container">
-    <div class="show-left-spot-container">
-        <img src="<%= spot.image %>">
-    </div>
+
+<div class="show-container">
+
+    <div class="show-spot-container">
+        <div class="show-left-spot-container">
+            <img src="<%= spot.image %>">
+        </div>
     
-    <div class="show-spot-right-container">
-        <div class="spot-info-panel">
-            <h1 id="spot-name"> <%= spot.name %> </h1>
-            <hr class="name-divider">
-            <h5 class="label-text"> Address: <span style="font-size: 20px"><%= spot.address.address1 %>, <%= spot.address.city %>, <%= spot.address.state %>, <%= spot.address.zip_code %> </span></h5><br>
-            <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
-            <h5 class="label-text"><span style="font-size: 20px"> <%= spot.isOpen ? 'Open now!' : 'Currently closed :('%> </span></h5> <br>
-            <h4 class="website-text"> Website: <a href="<%= spot.website %>"> Link to Yelp Page</a></h4><br>
+        <div class="show-spot-right-container">
+            <div class="spot-info-panel">
+                <h1 id="spot-name"> <%= spot.name %> </h1>
+                <hr class="name-divider">
+                <h5 class="label-text"> Address: <span style="font-size: 20px"><%= spot.address.address1 %>, <%= spot.address.city %>, <%= spot.address.state %>, <%= spot.address.zip_code %> </span></h5><br>
+                <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
+                <h5 class="label-text"><span style="font-size: 20px"> <%= spot.isOpen ? 'Open now!' : 'Currently closed :('%> </span></h5> <br>
+                <h4 class="website-text"> Website: <a href="<%= spot.website %>"> Link to Yelp Page</a></h4><br>
             
-            <% if (user) { %> 
-                <button type="button" id="formButton" onclick="showForm()">Add a Special</button>
-            <% }  else { %>
-                <h3> Login to Add a Special!</h3>    
-            <% } %>
+                <% if (user) { %> 
+                    <button type="button" id="formButton" onclick="showForm()">Add a Special</button>
+                 <% }  else { %>
+                    <h3> Login to Add a Special!</h3>    
+                <% } %>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="forms-container">
+    <div class="forms-container">
 
-    <hr id="spot-divider">
 
-    <div class= "show-specials">
+        <div class= "show-specials">
+            <hr id="spot-divider">
         <h4 id="current-specials-text">Current Specials</h4>
             <!-- specials go here -->
             <% spot.specials.forEach(function(special) { %>
@@ -88,6 +91,7 @@
             </div>
             <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
         </form>
+    </div>
     </div>
 </div>
 
