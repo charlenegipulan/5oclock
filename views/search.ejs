@@ -2,29 +2,25 @@
 
 <div class="search-results-panel">
 
-
-<div id="map">
-
-</div>
-<br>
-
-<div class="search-results">
-    <hr class="search-divider">
-    <div class="results-list">
-        <% spots.forEach(function(spot) { %>
-            <a href="/spots/<%= spot.id %>" class="list-group-item">
-                <img src="<%= spot.image_url %>">
-                <h3 class="show-spot-name-text"><%= spot.name %> </h3>
-                <p><%= spot.location.display_address %></p>
-                <% if (modelSpots.some(ms => ms.yelpId === spot.id)) { %>
-                    <h3>🔥</h3>
-                <% } %>
-
-
-            </a>
-        <% }); %>
+    <div id="map">
     </div>
-</div>
+    <br>
+
+    <div class="search-results">
+        <hr class="search-divider">
+        <div class="results-list">
+            <% spots.forEach(function(spot) { %>
+                <a href="/spots/<%= spot.id %>" class="list-group-item">
+                    <img src="<%= spot.image_url %>"> 
+                    <h3 class="show-spot-name-text"><%= spot.name %> <% if (modelSpots.some(ms => ms.yelpId === spot.id)) { %>
+                        🔥
+                    <% } %> </h3>
+                    <p><%= spot.location.display_address %></p>
+                    <hr>
+                </a>
+            <% }); %>
+        </div>
+    </div>
 
 </div>
 

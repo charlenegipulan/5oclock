@@ -102,10 +102,11 @@ a:hover {
 
 #spot-divider {
   margin-top: 10px;
-  height: 2px;
+  height: 3px;
   width: 85%;
   background-color: rgb(171, 171, 171);
   border: none;
+  box-shadow: 5px 15px 15px -10px black;
 }
 
 
@@ -232,7 +233,6 @@ ul {
   flex-direction: row;
   background-color: #FAFBFC;
   padding: 20px;
-  box-shadow: 5px 10px 10px -10px black;
 }
 
 .show-spot-container img {
@@ -304,6 +304,7 @@ ul {
   font-size: 20px;
   color: white;  outline: none;
   box-shadow:none !important;
+  border-radius: 10px;
 }
 
 .show-specials {
@@ -313,8 +314,10 @@ ul {
 }
 
 #current-specials-text {
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Poppins', sans-serif;
   font-size: 40px;
+  text-align: center;
+  background-color: #FAFBFC;
 }
 
 .secondary-content {
