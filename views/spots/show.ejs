@@ -22,52 +22,55 @@
                     <h3> Login to Add a Special!</h3>    
                 <% } %>
             </div>
+
+            <div class="forms-panel">
+                <form id="specials-form" action="/spots/<%= spot.id %>/specials" method="POST">
+                        <div class="form-group">
+                            <label for="category">Select a category&nbsp;&nbsp;</label>
+                                <select class="form-control" id="category" name="category">
+                                    <option selected>Select</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Drink">Drink</option>
+                                    <option value="Food & Drink">Food & Drink</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                        </div>
+                            <div class="form-group">
+                                <label for="price">Select a price range</label>
+                                    <select class="form-control" id="price" name="price">
+                                        <option selected>Select</option>
+                                        <option value="$">$ ($1-$12)</option>
+                                        <option value="$$">$$ ($13-$24)</option>
+                                        <option value="$$$">$$$ ($25-$36)</option>
+                                        <option value="$$$$">$$$$ ($37+)</option>
+                                    </select>
+                            </div>
+                            <h5>When is this special available?</h5>
+                            <div>
+                                <div class="form-group">
+                                    <label for="specialDays">Day(s)</label>
+                                    <input type="text" class="form-control" id="specialDays" aria-describedby="daysHelp" placeholder="Enter days" name= "when[days]"><br>
+                                    <small id="daysHelp" class="form-text text-muted">e.g. "Mon-Thurs", "Tues & Weds", or "Weekends"</small>
+                                </div>
+                                <div class="form-group">
+                                    <label name="specialHours">Hours</label>
+                                    <input type="hours" class="form-control" id="specialhours" aria-describedby="hoursHelp" placeholder="Enter hours" name= "when[hours]"><br>
+                                    <small id="hoursHelp" class="form-text text-muted">e.g. "All Day", "5-8 PM", "After 6PM" </small>
+                                </div> 
+                            </div>
+                      
+                            <h5>Describe the special</h5>
+                            <div class="form-group">
+                                <label for="specialContent"></label>
+                                <textarea class="form-control" id="specialContent" rows="3" name="content"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                    </form>
+            </div>
+
         </div>
 
-        <div class="forms-panel">
-            <form id="specials-form" action="/spots/<%= spot.id %>/specials" method="POST">
-                <div class="form-group">
-                    <label for="category">Select a category&nbsp;&nbsp;</label>
-                        <select class="form-control" id="category" name="category">
-                            <option selected>Select</option>
-                            <option value="Food">Food</option>
-                            <option value="Drink">Drink</option>
-                            <option value="Food & Drink">Food & Drink</option>
-                            <option value="Other">Other</option>
-                        </select>
-                </div>
-                    <div class="form-group">
-                        <label for="price">Select a price range</label>
-                            <select class="form-control" id="price" name="price">
-                                <option selected>Select</option>
-                                <option value="$">$ ($1-$12)</option>
-                                <option value="$$">$$ ($13-$24)</option>
-                                <option value="$$$">$$$ ($25-$36)</option>
-                                <option value="$$$$">$$$$ ($37+)</option>
-                            </select>
-                    </div>
-                    <h5>When is this special available?</h5>
-                    <div>
-                        <div class="form-group">
-                            <label for="specialDays">Day(s)</label>
-                            <input type="text" class="form-control" id="specialDays" aria-describedby="daysHelp" placeholder="Enter days" name= "when[days]"><br>
-                            <small id="daysHelp" class="form-text text-muted">e.g. "Mon-Thurs", "Tues & Weds", or "Weekends"</small>
-                        </div>
-                        <div class="form-group">
-                            <label name="specialHours">Hours</label>
-                            <input type="hours" class="form-control" id="specialhours" aria-describedby="hoursHelp" placeholder="Enter hours" name= "when[hours]"><br>
-                            <small id="hoursHelp" class="form-text text-muted">e.g. "All Day", "5-8 PM", "After 6PM" </small>
-                        </div> 
-                    </div>
-              
-                    <h5>Describe the special</h5>
-                    <div class="form-group">
-                        <label for="specialContent"></label>
-                        <textarea class="form-control" id="specialContent" rows="3" name="content"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
-            </form>
-        </div>
+
                 
     </div>
 

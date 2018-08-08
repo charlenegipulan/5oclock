@@ -205,6 +205,7 @@ ul {
 .search-results img {
   height: 240px;
   width: 350px;
+  
   float: left;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -220,7 +221,7 @@ ul {
 
 .show-left-spot-container {
   margin-top: 50px;
-  width: 30%
+  width: 30%;
 }
 
 .show-spot-right-container {
@@ -229,6 +230,9 @@ ul {
   width: 60%;
   display: flex;
   flex-direction: row;
+  background-color: #FAFBFC;
+  padding: 20px;
+  box-shadow: 5px 10px 10px -10px black;
 }
 
 .show-spot-container img {
@@ -323,14 +327,15 @@ ul {
 }
 
 .forms-panel {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 #submitBtn {
   width: 80px;
-  height: 20px;
+  height: 25px;
   font-size: 15px;
   margin-top: -20px;
+  padding: 2px;
 }
 
 input[type="text"], textarea, button {
