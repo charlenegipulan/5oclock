@@ -40,8 +40,10 @@
                     Price Range: <%= special.price %><br>
                     Deets: <%= special.content %><br>
                     Posted: <%= special.createdAt.toLocaleString() %><br>
+                    <% if (user) { %> 
                     <button onclick="upvote('<%= special.id %>')">👍</button><div class="upvote"><%= special.votes.upvotes %></div>
                     <button onclick="downvote('<%= special.id %>')">👎</button><div class="downvote"><%= special.votes.downvotes %></div> 
+                    <% } %>
                 </div>
             <% }); %>
         </div>
@@ -81,7 +83,6 @@
                         <small id="hoursHelp" class="form-text text-muted">e.g. "All Day", "5-8 PM", "After 6PM" </small>
                     </div> 
                 </div>
-        
                 <h5>Describe the special</h5>
                 <div class="form-group">
                     <label for="specialContent"></label>
