@@ -34,6 +34,7 @@ var businesses = [
         {
             name: `<%= spot.name %>`,
             address: `<%= spot.location.display_address.join(' ') %>`,
+            
             lat: <%= spot.coordinates.latitude %>,
             lng: <%= spot.coordinates.longitude %>
         }, 
@@ -69,7 +70,9 @@ function initMap(){
         var marker = new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
         var infoWindow = new google.maps.InfoWindow({ 
             content: `<h3>${b.name}</h3><br>
-                    <p>${b.address}</p>` 
+                    <p>${b.address}</p>
+                    <a href="https://maps.google.com/?ll=${b.lat},${b.lng}" target="_blank">View on Google Maps</a>`
+                   
         });
         marker.addListener('click', function() {
             if (openedInfoWindow) openedInfoWindow.close();
