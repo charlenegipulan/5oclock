@@ -97,7 +97,7 @@
     
     function showForm() {
         var popUp = document.getElementById("specials-form");
-        if (popUp.style.visibility === "hidden") {
+        if (getComputedStyle(popUp, null).getPropertyValue('visibility') === "hidden") {
             popUp.style.visibility = "visible";
         } else {
             popUp.style.visibility = "hidden";
