@@ -16,7 +16,7 @@ function createSpecial(req, res, next) {
 }
 
 function destroy(req, res, next) {
-    Spot.findOne({specials: req.params.id}).then(function(spot) {
+    Spot.findOne({'specials._id': req.params.id}).then(function(spot) {
         spot.specials.remove(req.params.id);
         spot.save(() => {
             res.json({message: 'Removed special!'});
