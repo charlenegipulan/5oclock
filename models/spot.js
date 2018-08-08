@@ -24,16 +24,7 @@ var spotSchema = new Schema ({
         city: String, 
         country: String
     },
-    hours: {
-        is_open_now: Boolean,
-        open: [
-            {
-                day: Number,
-                start: String,
-                end: String
-            }
-        ]
-    },
+    isOpen_now: Boolean,
     coordinates: {latitude: Number, longitude: Number},
     phone: String,
     website: String,
