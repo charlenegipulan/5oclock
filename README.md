@@ -19,8 +19,10 @@
 * Socket.io
 
 ### API Endpoints
-GET to /specials
-GET to /speicals/id
+| HTTP method | URI path          | Description      | 
+|-------------|-------------------|------------------|
+| GET         | /api/specials     | get all specials |
+| GET         | /api/specials/:id | get a special    |
 
 ### Unsolved Problems
 * Allow users to connect to Facebook
