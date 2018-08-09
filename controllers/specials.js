@@ -8,6 +8,7 @@ module.exports = {
 
 function createSpecial(req, res, next) {
     Spot.findById(req.params.id).then(function(spot) {
+        req.body.user = req.user.id;
         spot.specials.push(req.body);
         spot.save(function(err) {
             if (err) return res.redirect(`/spots/${spot.yelpId}`);

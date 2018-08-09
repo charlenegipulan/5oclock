@@ -12,7 +12,7 @@ var specialSchema = new Schema ({
     verified: {type: Boolean, default: false},
     price: {type: String, enum: ['$', '$$', '$$$', '$$$$']},
     when: { hours: String, days: String}, 
-    user: String
+    user: {type: Schema.Types.ObjectId, ref: 'User'}
 }, {
     timestamps: true
 });
