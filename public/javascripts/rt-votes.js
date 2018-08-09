@@ -6,16 +6,17 @@ socket.on('vote-changed', function(specialDoc) {
         var downvoteDiv = document.querySelector(`#special-${specialDoc._id} div.downvote`);
         upvoteDiv.innerHTML = specialDoc.votes.upvotes;
         downvoteDiv.innerHTML = specialDoc.votes.downvotes;
-        document.getElementById("upBtn").disabled = true;
-        document.getElementById("downBtn").disabled = true;
     }
 });
 
 function upvote(specialId) {
+    event.target.setAttribute('disabled', 'disabled');
     socket.emit('upvote', specialId);
+    
 };
 
 function downvote(specialId) {
+    event.target.setAttribute('disabled', 'disabled');
     socket.emit('downvote', specialId);
 };
 
