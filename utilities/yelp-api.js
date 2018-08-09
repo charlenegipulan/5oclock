@@ -8,10 +8,11 @@ module.exports = {
     getBusinessByYelpId
 };
 
-function search(lat, lng, location) {
+function search(lat, lng, location, term) {
     return new Promise((resolve) => {
+        var word = `term=${term}`; 
         var loc = location ? `location=${location}` : `latitude=${lat}&longitude=${lng}`;
-        var url = `${yelpSearchEndpoint}${loc}`;
+        var url = `${yelpSearchEndpoint}${loc}&${word}`;
         request({
             url,
             headers: {
