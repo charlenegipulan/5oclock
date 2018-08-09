@@ -14,11 +14,11 @@
                 <h5 class="label-text"> Address: <span style="font-size: 20px"><%= spot.address.address1 %>, <br><%= spot.address.city %>, <%= spot.address.state %> <%= spot.address.zip_code %> </span></h5><br>
                 <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
                 <h5 class="label-text"> <span class="<%= spot.isOpen ? 'open-text' : 'closed-text' %>"><%= spot.isOpen ? 'Open now!😏' : 'Currently closed ☹️' %></span></h5>  <br>
-                <h4 class="website-text"> Link: <a href="<%= spot.website %>" target="_blank"> <img src="https://i.imgur.com/TyoQDKA.png" style="width:80px;height:40px;"></a></h4><br>
+                <h4 class="website-text"> Link to Yelp: <a href="<%= spot.website %>" target="_blank"> <img src="https://i.imgur.com/TyoQDKA.png" style="width:80px;height:40px;"></a></h4><br>
                 <% if (user) { %> 
                     <button type="button" id="formButton" onclick="showForm()">Add a Special</button>
                  <% }  else { %>
-                    <a id="formButton" href="/special-login/<%= spot.yelpId %>">Log-in to add special</a>
+                    <a id="log-in-to-add" href="/special-login/<%= spot.yelpId %>">Log-in to add special</a>
                 <% } %>
             </div>
 

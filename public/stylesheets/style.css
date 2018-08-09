@@ -415,3 +415,14 @@ input[type="text"], textarea, button {
   color: red;
   font-size: 30px;
 }
+
+#log-in-to-add {
+  background-color: #DFB465;
+  border: none;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  outline: none;
+  color: white;
+  padding: 5px;
+}
