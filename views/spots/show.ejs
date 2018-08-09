@@ -83,15 +83,17 @@
             <!-- specials go here -->
             <% spot.specials.forEach(function(special) { %>
                 <div class="specials-box" id="special-<%= special.id %>">
-                    <% if (user && special.user.equals(user.id)) { %>
-                        <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️">
-                    <% } %>
+                    <input type="button" class="deleteBtn" onclick="destroySpecial('<%= special.id %>')" value="✖️">
                     <div>
                         <span class="special-label">Category:</span> <span style="font-size: 20px"></span><%= special.category %> </span> 
                     </div>
-                    <span style="font-size: 20px"><%= special.price %> </span>
+                    <div>
+                        <span class="special-label">Price</span>
+                        <span style="font-size: 20px"><%= special.price %> </span>
+                    </div>
                     <span style="font-size: 40px"><%= special.content %></span>
                     <div>
+                        <span class="special-label">When:</span>
                         <span style="font-size: 20px"><%= special.when.days %> </span> 
                         <span style="font-size: 20px"><%= special.when.hours %> </span>   <br>
                     </div>
@@ -166,7 +168,6 @@
             popUp.style.visibility = "hidden";
         }
     }
-
     function destroySpecial(specialId) {
         event.preventDefault();
         event.stopPropagation();
@@ -176,7 +177,6 @@
             document.getElementById(`special-${specialId}`).remove();
         });
     }
-
 </script>
 
 

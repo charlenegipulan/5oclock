@@ -21,8 +21,8 @@
     <% } else { %>
       <a class ="log-in-text-main-page" href="/auth/google">LOG IN WITH GOOGLE</a>
     <% } %>
-  <div class="center-container">
 
+  <div class="center-container">
     <h1 class="title">Its 5 o'clock somewhere</h1>
   </div>
   
@@ -37,30 +37,28 @@
 </div>
 
   <p class="tag-line-text">Discover your spot </p>
-  <div class="search-bar">
-        <form class="col-sm-12" action="/spots/search" method="GET">
-          <input type="text" name="location" class="form-control" id="main-search-bar" placeholder="Current Location or Enter City/Zipcode">
-          <input type="text" name="term" class="form-control" id="keyword-search-bar" placeholder="Enter Keyword here (Optional)">
-          <input type="hidden" name="lat">
-          <input type="hidden" name="lng">
-          <button type="search" class="btn btn-primary" id="main-search-btn">search</button>
-      </form>
+
+<div class="search-bar">
+  <form class="col-sm-12" action="/spots/search" method="GET">
+    <input type="text" name="location" class="form-control" id="main-search-bar" placeholder="Current Location or Enter City/Zipcode">
+    <input type="text" name="term" class="form-control" id="keyword-search-bar" placeholder="Enter Keyword here (Optional)">
+    <input type="hidden" name="lat">
+    <input type="hidden" name="lng">
+    <button type="search" class="btn btn-primary" id="main-search-btn">search</button>
+  </form>
     
-    </div>
+</div>
 
-    <hr id="landing-page-divider">
+<hr id="landing-page-divider">
 
-
-    <script>
-      navigator.geolocation.getCurrentPosition(position => {
-        console.log(position);
-        var inp = document.querySelector('input[name="lat"]');
-        inp.value = position.coords.latitude;
-        inp = document.querySelector('input[name="lng"]');
-        inp.value = position.coords.longitude;
-      });
-    </script>
+<script>
+  navigator.geolocation.getCurrentPosition(position => {
+    var inp = document.querySelector('input[name="lat"]');
+    inp.value = position.coords.latitude;
+    inp = document.querySelector('input[name="lng"]');
+    inp.value = position.coords.longitude;
+  });
+</script>
  
-
 
  <%- include('./_partials/footer') %>
