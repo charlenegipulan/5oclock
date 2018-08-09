@@ -39,6 +39,8 @@ function getExistingOrNewSpot(yelpId) {
             // get the information
             yelpApi.getBusinessByYelpId(yelpId).then(business => {
             //add to database
+                var phone = business.phone.substr(business.phone.length -10);
+                phone = `(${phone.substr(0, 3)}) ${phone.substr(3, 3)}-${phone.substr(6)}`;
                 var spot = new Spot({
                     yelpId: business.id,
                     name: business.name,
@@ -47,7 +49,7 @@ function getExistingOrNewSpot(yelpId) {
                     coordinates: business.coordinates,
                     image: business.image_url,
                     website: business.url,
-                    phone: business.phone
+                    phone: phone
                 });
                 spot.save()
                 .then(function() {
