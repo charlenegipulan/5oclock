@@ -85,7 +85,9 @@
             <!-- specials go here -->
             <% spot.specials.forEach(function(special) { %>
                 <div class="specials-box" id="special-<%= special.id %>">
-                    <input type="button" class="deleteBtn" onclick="destroySpecial('<%= special.id %>')" value="✖️">
+                        <% if (user && special.user.equals(user.id)) { %>
+                            <input type="button" class="secondary-content btn-small red-text" onclick="destroySpecial('<%= special.id %>')" value="✖️">
+                        <% } %>
                     <div>
                         <span class="special-label">Category:</span> <span style="font-size: 20px"></span><%= special.category %> </span> 
                     </div>
