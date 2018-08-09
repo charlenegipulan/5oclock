@@ -1,5 +1,5 @@
 var Spot = require('../models/spot');
-var User = require('../models/spot');
+
 
 module.exports = {
     create: createSpecial,
