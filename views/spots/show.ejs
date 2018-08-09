@@ -6,7 +6,6 @@
         <div class="show-left-spot-container">
             <img src="<%= spot.image %>">
         </div>
-    
         <div class="show-spot-right-container">
             <div class="spot-info-panel">
                 <h1 id="spot-name"> <%= spot.name %> </h1>
@@ -21,7 +20,6 @@
                     <a id="log-in-to-add" href="/special-login/<%= spot.yelpId %>">Log-in to add special</a>
                 <% } %>
             </div>
-
             <div class="forms-panel">
                 <form id="specials-form" action="/spots/<%= spot.id %>/specials" method="POST">
                         <div class="form-group">
@@ -44,9 +42,7 @@
                                     <option value="$$$$">$$$$ ($37+)</option>
                                 </select>
                         </div>
-
                         <h5>When is this special available?</h5>
-
                         <div>
                             <div class="form-group">
                                 <label for="specialDays">Day(s)</label>
@@ -59,9 +55,7 @@
                                 <small id="hoursHelp" class="form-text text-muted">e.g. "All Day", "5-8 PM", "After 6PM" </small>
                             </div> 
                         </div>
-                      
-                        <h5>Describe the special*</h5>
-                            
+                        <h5>Describe the special*</h5> 
                         <div class="form-group">
                             <label for="specialContent"></label>
                             <textarea class="form-control" id="specialContent" rows="3" name="content"></textarea><br>
@@ -70,11 +64,7 @@
                         <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
                 </form>
             </div>
-
-        </div>
-
-
-                
+        </div>        
     </div>
 
     <div class="forms-container">
@@ -158,7 +148,6 @@
         </div>
     </div>
 </div>
-
     
 <script src="/socket.io/socket.io.js"></script>
 <script src="/javascripts/rt-votes.js"></script>
@@ -171,6 +160,7 @@
             popUp.style.visibility = "hidden";
         }
     }
+    
     function destroySpecial(specialId) {
         event.preventDefault();
         event.stopPropagation();

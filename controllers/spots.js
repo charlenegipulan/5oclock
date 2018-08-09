@@ -1,15 +1,11 @@
 var Spot = require('../models/spot');
 var yelpApi = require('../utilities/yelp-api');
 
-module.exports = {
-    index, 
+module.exports = { 
     show: showSpot, 
     search
 }
 
-function index(req, res, next) {
-    
-}
 
 function search(req, res, next) {
     var {lat, lng, location, term} = req.query;
@@ -17,8 +13,7 @@ function search(req, res, next) {
         var spots = result.businesses;
         Spot.find({yelpId: {$in: spots.map(s => s.id)}}, function(err, modelSpots) {
             modelSpots = modelSpots.filter(s => s.specials.length);
-            console.log(modelSpots);
-            res.render('search', {modelSpots, spots, user: req.user});
+            res.render('search', { modelSpots, spots, user: req.user });
         });
     });
 }

@@ -1,11 +1,8 @@
 <%- include('./_partials/head') %>
 
 <div class="search-results-panel">
-
     <div id="map">
     </div>
-    <br>
-
     <div class="search-results">
         <hr class="search-divider">
         <div class="results-list">
@@ -21,7 +18,6 @@
             <% }); %>
         </div>
     </div>
-
 </div>
 
 <script>
@@ -30,7 +26,6 @@ var businesses = [
         {
             name: `<%= spot.name %>`,
             address: `<%= spot.location.display_address.join(' ') %>`,
-            
             lat: <%= spot.coordinates.latitude %>,
             lng: <%= spot.coordinates.longitude %>
         }, 
@@ -58,9 +53,7 @@ function initMap(){
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
         center: center
-    });
-    
-
+    });    
     //draw markers for each business
     businesses.forEach(function(b, idx) {
         var marker = new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
@@ -68,7 +61,6 @@ function initMap(){
             content: `<h3>${b.name}</h3><br>
                     <p>${b.address}</p>
                     <a href="https://maps.google.com/?ll=${b.lat},${b.lng}" target="_blank">View location on Google Maps</a>`
-                   
         });
         marker.addListener('click', function() {
             if (openedInfoWindow) openedInfoWindow.close();
@@ -83,9 +75,6 @@ function initMap(){
     });
 }
 </script>
-
-<!-- <script src="../public/javascript/main.js"></script>     -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLEMAPS_KEY%>&callback=initMap" type="text/javascript"></script> 
-
  
 <%- include('./_partials/footer') %>
