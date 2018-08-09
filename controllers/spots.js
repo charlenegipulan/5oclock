@@ -12,9 +12,8 @@ function index(req, res, next) {
 }
 
 function search(req, res, next) {
-    var {lat, lng, location} = req.query;
-    // console.log(lat, lng, location);
-    yelpApi.search(lat, lng, location).then(result => {
+    var {lat, lng, location, term} = req.query;
+    yelpApi.search(lat, lng, location, term).then(result => {
         var spots = result.businesses;
         Spot.find({yelpId: {$in: spots.map(s => s.id)}}, function(err, modelSpots) {
             modelSpots = modelSpots.filter(s => s.specials.length);
