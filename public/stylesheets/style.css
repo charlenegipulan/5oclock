@@ -88,8 +88,15 @@ a:hover {
 }
 
 .icons-container {
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
+}
+
+.tag-line-text {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: gray;
 }
 
 #landing-page-divider {
@@ -142,8 +149,6 @@ ul {
 }
 
 .form-control {
-  height: 30px;
-  width: 700px;
   display: inline;
 }
 
@@ -160,6 +165,12 @@ ul {
 
 #main-search-bar {
   height: 50px;
+  width: 600px;
+}
+
+#keyword-search-bar {
+  height: 50px;
+  width: 300px;
 }
 
 #map {
@@ -360,8 +371,10 @@ input[type="text"], textarea, button {
   flex-direction: column;
   width: 30%;
   margin: 15px;
-  border: 4mm ridge rgb(216, 192, 154);
+  border: 3px dashed gray;
   text-align: center;
+  padding: 10px;
+  background-color: #F7F6F5;
 }
 
 .special-label {
@@ -370,4 +383,12 @@ input[type="text"], textarea, button {
 
 #upBtn, #downBtn {
   font-size: 20px;
+  border: none !important;
+  background-color: #F7F6F5;
+}
+
+.deleteBtn {
+  font-size: 20px;
+  border: none !important;
+  background-color: #F7F6F5;
 }
