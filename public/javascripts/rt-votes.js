@@ -10,13 +10,15 @@ socket.on('vote-changed', function(specialDoc) {
 });
 
 function upvote(specialId) {
-    event.target.setAttribute('disabled', 'disabled');
+    document.getElementById("upBtn").setAttribute('disabled', 'disabled');
+    document.getElementById("downBtn").setAttribute('disabled', 'disabled');
     socket.emit('upvote', specialId);
     
 };
 
 function downvote(specialId) {
-    event.target.setAttribute('disabled', 'disabled');
+    document.getElementById("upBtn").setAttribute('disabled', 'disabled');
+    document.getElementById("downBtn").setAttribute('disabled', 'disabled');
     socket.emit('downvote', specialId);
 };
 
