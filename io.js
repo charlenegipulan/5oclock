@@ -10,7 +10,6 @@ io.on('connection', function(socket) {
             spot.save();
         });
     });
-    
     socket.on('downvote',function(specialId) {
         Spot.findOne({'specials._id': specialId}, function(err, spot) {
             var special = spot.specials.id(specialId);
@@ -20,7 +19,5 @@ io.on('connection', function(socket) {
         });
     });
 });
-
-
 
 module.exports = io;
