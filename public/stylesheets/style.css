@@ -96,6 +96,7 @@ a:hover {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   color: gray;
+  font-size: 20px;
 }
 
 #landing-page-divider {
@@ -124,6 +125,7 @@ ul {
   margin-top: -15px;
   position: absolute;
   left: 45%;
+  white-space: nowrap;
 }
 
 .home-link {
@@ -317,7 +319,6 @@ ul {
 }
 
 
-
 #current-specials-text {
   font-family: 'Poppins', sans-serif;
   font-size: 40px;
@@ -345,6 +346,14 @@ ul {
   font-size: 15px;
   margin-top: -20px;
   padding: 2px;
+}
+
+#submitBtn:hover {
+  background-color: rgb(216, 192, 154);
+}
+
+#main-search-btn:hover {
+  background-color: rgb(216, 192, 154);
 }
 
 input[type="text"], textarea, button {
@@ -395,4 +404,14 @@ input[type="text"], textarea, button {
 
 .upvote, .downvote {
   font-size: 20px;
+}
+
+.open-text {
+  color: green;
+  font-size: 30px;
+}
+
+.closed-text {
+  color: red;
+  font-size: 30px;
 }
