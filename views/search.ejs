@@ -62,7 +62,7 @@ function initMap(){
     
 
     //draw markers for each business
-    businesses.forEach(function(b) {
+    businesses.forEach(function(b, idx) {
         var marker = new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
         var infoWindow = new google.maps.InfoWindow({ 
             content: `<h3>${b.name}</h3><br>
@@ -71,6 +71,11 @@ function initMap(){
                    
         });
         marker.addListener('click', function() {
+            if (openedInfoWindow) openedInfoWindow.close();
+            infoWindow.open(map, marker);
+            openedInfoWindow = infoWindow;
+        });
+        document.getElementsByClassName('list-group-item')[idx].addEventListener('mouseenter', function() {
             if (openedInfoWindow) openedInfoWindow.close();
             infoWindow.open(map, marker);
             openedInfoWindow = infoWindow;
