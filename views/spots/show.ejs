@@ -98,11 +98,11 @@
                     <div>
                         <span class="special-label">Posted:</span><%= special.createdAt.toLocaleString() %>
                     </div>
+                    <% if (user) { %> 
                     <div class="votes-container">
                         <button id="upBtn" onclick="upvote('<%= special.id %>')">👍🏻</button><div class="upvote"><%= special.votes.upvotes %></div>
                         <button id="downBtn" onclick="downvote('<%= special.id %>')">👎🏻</button><div class="downvote"><%= special.votes.downvotes %></div> 
                     </div>
-                    <% if (user) { %> 
                     <% } %>
                 </div>
             <% }); %>
