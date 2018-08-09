@@ -35,4 +35,5 @@
 
 ### Icebox
 * Sort specials based on popularity
+* Add Admin features
 * Add more images
