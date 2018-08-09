@@ -2,27 +2,25 @@
 
 <div class="search-results-panel">
 
-
-<div id="map">
-
-</div>
-<br>
-
-<div class="search-results">
-    <hr class="search-divider">
-    <div class="results-list">
-        <% spots.forEach(function(spot) { %>
-            <a href="/spots/<%= spot.id %>" class="list-group-item">
-                <img src="<%= spot.image_url %>">
-                <h3 class="show-spot-name-text"><%= spot.name %> </h3>
-                <p><%= spot.location.display_address %></p>
-                <% if (modelSpots.some(ms => ms.yelpId === spot.id)) { %>
-                    <h3>🔥</h3>
-                <% } %>
-            </a>
-        <% }); %>
+    <div id="map">
     </div>
-</div>
+    <br>
+
+    <div class="search-results">
+        <hr class="search-divider">
+        <div class="results-list">
+            <% spots.forEach(function(spot) { %>
+                <a href="/spots/<%= spot.id %>" class="list-group-item">
+                    <img src="<%= spot.image_url %>"> 
+                    <h3 class="show-spot-name-text"><%= spot.name %> <% if (modelSpots.some(ms => ms.yelpId === spot.id)) { %>
+                        🔥
+                    <% } %> </h3>
+                    <p><%= spot.location.display_address %></p>
+                    <hr>
+                </a>
+            <% }); %>
+        </div>
+    </div>
 
 </div>
 
@@ -58,13 +56,13 @@ function initMap(){
         lng: (computeMinMax.lngMin + computeMinMax.lngMax) / 2
     };
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
+        zoom: 13,
         center: center
     });
     
 
     //draw markers for each business
-    businesses.forEach(function(b) {
+    businesses.forEach(function(b, idx) {
         var marker = new google.maps.Marker({position: {lat: b.lat, lng: b.lng}, map: map, title: b.name});
         var infoWindow = new google.maps.InfoWindow({ 
             content: `<h3>${b.name}</h3><br>
@@ -73,6 +71,11 @@ function initMap(){
                    
         });
         marker.addListener('click', function() {
+            if (openedInfoWindow) openedInfoWindow.close();
+            infoWindow.open(map, marker);
+            openedInfoWindow = infoWindow;
+        });
+        document.getElementsByClassName('list-group-item')[idx].addEventListener('mouseenter', function() {
             if (openedInfoWindow) openedInfoWindow.close();
             infoWindow.open(map, marker);
             openedInfoWindow = infoWindow;

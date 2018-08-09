@@ -102,10 +102,11 @@ a:hover {
 
 #spot-divider {
   margin-top: 10px;
-  height: 2px;
+  height: 3px;
   width: 85%;
   background-color: rgb(171, 171, 171);
   border: none;
+  box-shadow: 5px 15px 15px -10px black;
 }
 
 
@@ -205,7 +206,6 @@ ul {
 .search-results img {
   height: 240px;
   width: 350px;
-  
   float: left;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -232,7 +232,6 @@ ul {
   flex-direction: row;
   background-color: #FAFBFC;
   padding: 20px;
-  box-shadow: 5px 10px 10px -10px black;
 }
 
 .show-spot-container img {
@@ -293,7 +292,7 @@ ul {
 
 .forms-container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 #formButton {
@@ -304,17 +303,16 @@ ul {
   font-size: 20px;
   color: white;  outline: none;
   box-shadow:none !important;
+  border-radius: 10px;
 }
 
-.show-specials {
-  margin-top: 10px;
-  width: 80%;
-  margin-left: 100px;
-}
+
 
 #current-specials-text {
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Poppins', sans-serif;
   font-size: 40px;
+  text-align: center;
+  background-color: #FAFBFC;
 }
 
 .secondary-content {
@@ -342,4 +340,34 @@ input[type="text"], textarea, button {
   outline: none;
   box-shadow:none !important;
   border:1px solid #ccc !important;
+}
+
+.votes-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.show-specials {
+  display: flex;
+  flex-direction: row;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.specials-box {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 15px;
+  border: 4mm ridge rgb(216, 192, 154);
+  text-align: center;
+}
+
+.special-label {
+  color: orange;
+}
+
+#upBtn, #downBtn {
+  font-size: 20px;
 }
