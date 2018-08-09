@@ -24,7 +24,7 @@ GET to /speicals/id
 
 ### Unsolved Problems
 * Allow users to connect to Facebook
-* A chat feature
+* Adding a chat feature
 
 ### Icebox
 * Sort specials based on popularity
