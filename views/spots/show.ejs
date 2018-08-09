@@ -15,7 +15,7 @@
                 <h5 class="label-text"> Address: <span style="font-size: 20px"><%= spot.address.address1 %>, <br><%= spot.address.city %>, <%= spot.address.state %> <%= spot.address.zip_code %> </span></h5><br>
                 <h5 class="label-text"> Telephone: <span style="font-size: 20px"><%= spot.phone %> </span></h5><br>
                 <h5 class="label-text"><span style="font-size: 20px"> <%= spot.isOpen ? 'Open now!' : 'Currently closed :('%> </span></h5> <br>
-                <h4 class="website-text"> Website: <a href="<%= spot.website %>"> Link to Yelp Page</a></h4><br>
+                <h4 class="website-text"> Website: <a href="<%= spot.website %>" target="_blank"> Link to Yelp Page</a></h4><br>
                 <% if (user) { %> 
                     <button type="button" id="formButton" onclick="showForm()">Add a Special</button>
                  <% }  else { %>
