@@ -16,7 +16,6 @@ function getAllSpecials(req, res) {
                     businessName: spot.name,
                     address: spot.address,
                     specials: special.content,
-                    hot: special.hot,
                     votes: {upvotes: special.votes.upvotes, downvotes: special.votes.downvotes},
                     category: special.category,
                     priceRange: special.price,
