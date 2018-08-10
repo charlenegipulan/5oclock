@@ -26,8 +26,8 @@
 ### API Endpoints
 | HTTP method | URI path          | Description      | 
 |-------------|-------------------|------------------|
-| GET         | /api/specials     | get all specials |
-| GET         | /api/specials/:id | get a special    |
+| GET         | /api              | get all specials |
+| GET         | /api/:id          | get a special    |
 
 ### Unsolved Problems
 * Allow users to connect to Facebook
